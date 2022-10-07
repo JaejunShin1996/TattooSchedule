@@ -20,7 +20,7 @@ struct LaunchScreenView: View {
         } else {
             VStack {
                 VStack {
-                    Image(systemName: "pencil")
+                    Image(systemName: "circle.fill")
                         .font(.system(size: 80))
                         .foregroundColor(.white)
                     Text("Tattoo Schedule")

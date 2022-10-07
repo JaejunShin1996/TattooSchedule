@@ -14,7 +14,7 @@ struct TattooScheduleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LaunchScreenView()
+            ScheduleView(dataController: dataController)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(dataController)
         }
