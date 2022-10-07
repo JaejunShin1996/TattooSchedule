@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5201901A28E5765C00F79E43 /* ImagePicker.swift */; };
+		520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */; };
+		5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215A02028EBD2A000306643 /* ScheduleViewModel.swift */; };
+		52286CCF28EEA8CC00194A43 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */; };
+		522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */; };
+		527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A94DF28EE9A9700533E97 /* Assets.xcassets */; };
+		52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */; };
+		52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47228584EA100E88AEE /* ScheduleView.swift */; };
+		52E9C47828584EA200E88AEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E9C47728584EA200E88AEE /* Preview Assets.xcassets */; };
+		52E9C48028584EE000E88AEE /* Schedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47E28584EE000E88AEE /* Schedule.xcdatamodeld */; };
+		52E9C48228584F7600E88AEE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C48128584F7600E88AEE /* DataController.swift */; };
+		52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4832858518D00E88AEE /* AddScheduleView.swift */; };
+		52E9C4862858540F00E88AEE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4852858540F00E88AEE /* DetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5201901A28E5765C00F79E43 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule-CoreDataHelper.swift"; sourceTree = "<group>"; };
+		5215A02028EBD2A000306643 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocus.swift; sourceTree = "<group>"; };
+		5234532528E1616D00C89FEC /* TattooSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TattooSchedule.entitlements; sourceTree = "<group>"; };
+		5234532628E161B800C89FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		527A94DF28EE9A9700533E97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52E9C46D28584EA100E88AEE /* TattooSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TattooSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TattooScheduleApp.swift; sourceTree = "<group>"; };
+		52E9C47228584EA100E88AEE /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		52E9C47728584EA200E88AEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		52E9C47F28584EE000E88AEE /* Schedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Schedule.xcdatamodel; sourceTree = "<group>"; };
+		52E9C48128584F7600E88AEE /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		52E9C4832858518D00E88AEE /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
+		52E9C4852858540F00E88AEE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52E9C46A28584EA100E88AEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		520EA4E328E179F800132381 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */,
+				52E9C47228584EA100E88AEE /* ScheduleView.swift */,
+				5215A02028EBD2A000306643 /* ScheduleViewModel.swift */,
+				52E9C4832858518D00E88AEE /* AddScheduleView.swift */,
+				5201901A28E5765C00F79E43 /* ImagePicker.swift */,
+				52E9C4852858540F00E88AEE /* DetailView.swift */,
+			);
+			path = Activities;
+			sourceTree = "<group>";
+		};
+		520EA4E428E17A0500132381 /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				52E9C48128584F7600E88AEE /* DataController.swift */,
+				52E9C47E28584EE000E88AEE /* Schedule.xcdatamodeld */,
+			);
+			path = DataController;
+			sourceTree = "<group>";
+		};
+		520EA4E528E17B7C00132381 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */,
+				522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		52E9C46428584EA100E88AEE = {
+			isa = PBXGroup;
+			children = (
+				52E9C46F28584EA100E88AEE /* TattooSchedule */,
+				52E9C46E28584EA100E88AEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52E9C46E28584EA100E88AEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52E9C46D28584EA100E88AEE /* TattooSchedule.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52E9C46F28584EA100E88AEE /* TattooSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */,
+				520EA4E328E179F800132381 /* Activities */,
+				520EA4E528E17B7C00132381 /* Extentions */,
+				520EA4E428E17A0500132381 /* DataController */,
+				5234532628E161B800C89FEC /* Info.plist */,
+				527A94DF28EE9A9700533E97 /* Assets.xcassets */,
+				5234532528E1616D00C89FEC /* TattooSchedule.entitlements */,
+				52E9C47628584EA200E88AEE /* Preview Content */,
+			);
+			path = TattooSchedule;
+			sourceTree = "<group>";
+		};
+		52E9C47628584EA200E88AEE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				52E9C47728584EA200E88AEE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52E9C46C28584EA100E88AEE /* TattooSchedule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52E9C47B28584EA200E88AEE /* Build configuration list for PBXNativeTarget "TattooSchedule" */;
+			buildPhases = (
+				52E9C46928584EA100E88AEE /* Sources */,
+				52E9C46A28584EA100E88AEE /* Frameworks */,
+				52E9C46B28584EA100E88AEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TattooSchedule;
+			productName = TattooSchedule;
+			productReference = 52E9C46D28584EA100E88AEE /* TattooSchedule.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52E9C46528584EA100E88AEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					52E9C46C28584EA100E88AEE = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 52E9C46828584EA100E88AEE /* Build configuration list for PBXProject "TattooSchedule" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52E9C46428584EA100E88AEE;
+			productRefGroup = 52E9C46E28584EA100E88AEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52E9C46C28584EA100E88AEE /* TattooSchedule */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52E9C46B28584EA100E88AEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */,
+				52E9C47828584EA200E88AEE /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52E9C46928584EA100E88AEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */,
+				52E9C4862858540F00E88AEE /* DetailView.swift in Sources */,
+				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
+				5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */,
+				522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */,
+				52E9C48028584EE000E88AEE /* Schedule.xcdatamodeld in Sources */,
+				5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */,
+				52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */,
+				52286CCF28EEA8CC00194A43 /* LaunchScreenView.swift in Sources */,
+				520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */,
+				52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		52E9C47928584EA200E88AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		52E9C47A28584EA200E88AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52E9C47C28584EA200E88AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = TattooSchedule/TattooSchedule.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TattooSchedule/Preview Content\"";
+				DEVELOPMENT_TEAM = YZ2HTNTHQP;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TattooSchedule/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your permisson to access the library.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreenView;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaejunshin.TattooSchedule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52E9C47D28584EA200E88AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = TattooSchedule/TattooSchedule.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TattooSchedule/Preview Content\"";
+				DEVELOPMENT_TEAM = YZ2HTNTHQP;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TattooSchedule/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your permisson to access the library.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreenView;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaejunshin.TattooSchedule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52E9C46828584EA100E88AEE /* Build configuration list for PBXProject "TattooSchedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E9C47928584EA200E88AEE /* Debug */,
+				52E9C47A28584EA200E88AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52E9C47B28584EA200E88AEE /* Build configuration list for PBXNativeTarget "TattooSchedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E9C47C28584EA200E88AEE /* Debug */,
+				52E9C47D28584EA200E88AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		52E9C47E28584EE000E88AEE /* Schedule.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				52E9C47F28584EE000E88AEE /* Schedule.xcdatamodel */,
+			);
+			currentVersion = 52E9C47F28584EE000E88AEE /* Schedule.xcdatamodel */;
+			path = Schedule.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 52E9C46528584EA100E88AEE /* Project object */;
+}
