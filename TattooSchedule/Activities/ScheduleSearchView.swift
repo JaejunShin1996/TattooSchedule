@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ScheduleSearchView: View {
+    @Environment(\.dismiss) var dismiss
+
     @State private var searchText = ""
 
     @StateObject var viewModel: ViewModel
@@ -20,7 +22,7 @@ struct ScheduleSearchView: View {
 
     var searchResults: [Schedule] {
         if searchText.isEmpty {
-            return viewModel.schedules
+            return []
         } else {
             return viewModel.filteredSchedules(searchString: searchText)
         }
@@ -43,6 +45,15 @@ struct ScheduleSearchView: View {
             }
             .searchable(text: $searchText)
             .navigationTitle("Search")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                    }
+                }
+            }
         }
     }
 }
