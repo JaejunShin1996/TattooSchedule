@@ -13,6 +13,7 @@
 		52286CCF28EEA8CC00194A43 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */; };
 		522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */; };
 		527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A94DF28EE9A9700533E97 /* Assets.xcassets */; };
+		52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */; };
 		52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */; };
 		52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47228584EA100E88AEE /* ScheduleView.swift */; };
 		52E9C47828584EA200E88AEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E9C47728584EA200E88AEE /* Preview Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		5234532528E1616D00C89FEC /* TattooSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TattooSchedule.entitlements; sourceTree = "<group>"; };
 		5234532628E161B800C89FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		527A94DF28EE9A9700533E97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSearchView.swift; sourceTree = "<group>"; };
 		52E9C46D28584EA100E88AEE /* TattooSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TattooSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TattooScheduleApp.swift; sourceTree = "<group>"; };
 		52E9C47228584EA100E88AEE /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */,
 				52E9C47228584EA100E88AEE /* ScheduleView.swift */,
 				5215A02028EBD2A000306643 /* ScheduleViewModel.swift */,
+				52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */,
 				52E9C4832858518D00E88AEE /* AddScheduleView.swift */,
 				5201901A28E5765C00F79E43 /* ImagePicker.swift */,
 				52E9C4852858540F00E88AEE /* DetailView.swift */,
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */,
+				52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */,
 				52E9C4862858540F00E88AEE /* DetailView.swift in Sources */,
 				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
 				5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */,

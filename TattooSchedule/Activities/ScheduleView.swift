@@ -11,6 +11,7 @@ import UserNotifications
 
 struct ScheduleView: View {
     @Environment(\.scenePhase) var scenePhase
+    @EnvironmentObject var dataController: DataController
     @StateObject var viewModel: ViewModel
 
     init(dataController: DataController) {
@@ -21,7 +22,7 @@ struct ScheduleView: View {
     
     var body: some View {
         NavigationView {
-            List {
+            Form {
                 Section(header: Text("Today").font(.title)) {
                     ForEach(viewModel.schedules) { schedule in
                         if isToday(schedule: schedule) {
@@ -30,8 +31,8 @@ struct ScheduleView: View {
                             } label: {
                                 VStack(alignment: .leading) {
                                     Text(schedule.scheduleName)
-                                        .font(.largeTitle)
-                                    
+                                        .font(.title)
+
                                     Text(schedule.scheduleDate.formatted())
                                         .font(.title)
                                 }
@@ -39,7 +40,7 @@ struct ScheduleView: View {
                         }
                     }
                 }
-                
+
                 Section(header: Text("Upcoming").font(.caption)) {
                     ForEach(viewModel.schedules) { schedule in
                         if isTomorrow(schedule: schedule) ||
@@ -49,36 +50,46 @@ struct ScheduleView: View {
                             } label: {
                                 VStack(alignment: .leading) {
                                     Text(schedule.scheduleName)
-                                        .font(.title)
-                                    
-                                    Text(schedule.scheduleDate.formatted())
-                                        .font(.title)
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                Section(header: Text("Past").font(.caption)) {
-                    ForEach(viewModel.schedules) { schedule in
-                        if isYesterday(schedule: schedule) ||
-                            (!isToday(schedule: schedule) && !isTomorrow(schedule: schedule)) {
-                            NavigationLink {
-                                DetailView(schedule: schedule)
-                            } label: {
-                                VStack(alignment: .leading) {
-                                    Text(schedule.scheduleName)
-                                        .font(.title3)
-                                        .foregroundColor(.secondary)
-                                    
+                                        .font(.headline)
+
                                     Text(schedule.scheduleDate.formatted())
                                         .font(.headline)
-                                        .foregroundColor(.secondary)
                                 }
                             }
                         }
                     }
                 }
+
+                Toggle(isOn: $viewModel.showingPastSchedule) {
+                    Text("Past Schedules")
+                }
+
+                if viewModel.showingPastSchedule {
+                    Section(header: Text("Past").font(.caption)) {
+                        ForEach(viewModel.schedules) { schedule in
+                            if isYesterday(schedule: schedule) ||
+                                (!isToday(schedule: schedule) &&
+                                 !isTomorrow(schedule: schedule) &&
+                                 !(schedule.scheduleDate > Date.now.addingTimeInterval(86400))
+                                ) {
+                                NavigationLink {
+                                    DetailView(schedule: schedule)
+                                } label: {
+                                    VStack(alignment: .leading) {
+                                        Text(schedule.scheduleName)
+                                            .font(.headline)
+                                            .foregroundColor(.secondary)
+
+                                        Text(schedule.scheduleDate.formatted())
+                                            .font(.headline)
+                                            .foregroundColor(.secondary)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
             .navigationTitle("Tattoo Schedule")
             .toolbar {
@@ -89,17 +100,20 @@ struct ScheduleView: View {
                         Label("Add Schedule", systemImage: "plus")
                     }
                 }
+
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        viewModel.showingSearchView.toggle()
+                    } label: {
+                        Label("Search for schedules", systemImage: "magnifyingglass")
+                    }
+                }
             }
             .sheet(isPresented: $viewModel.showingAddSchedule) {
                 AddScheduleView()
             }
-            .alert(isPresented: $viewModel.showingNotificationsError) {
-                Alert(
-                    title: Text("Oops!"),
-                    message: Text("There was a problem. Please check you have notifications enabled."),
-                    primaryButton: .default(Text("Check Settings"), action: showAppSettings),
-                    secondaryButton: .cancel()
-                )
+            .sheet(isPresented: $viewModel.showingSearchView) {
+                ScheduleSearchView(dataController: dataController)
             }
             .onChange(of: scenePhase) { newPhase in
                 if newPhase == .inactive {
@@ -133,19 +147,6 @@ struct ScheduleView: View {
         let date = schedule.scheduleDate
 
         return Calendar.current.isDateInYesterday(date)
-    }
-
-    
-
-    // alerts when users have disabled the notification.
-    func showAppSettings() {
-        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-            return
-        }
-
-        if UIApplication.shared.canOpenURL(settingsUrl) {
-            UIApplication.shared.open(settingsUrl)
-        }
     }
 }
 

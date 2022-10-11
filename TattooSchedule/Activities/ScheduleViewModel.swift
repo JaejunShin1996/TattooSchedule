@@ -9,64 +9,76 @@ import CoreData
 import Foundation
 import SwiftUI
 
-extension ScheduleView {
-    class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
-        let dataController: DataController
+class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+    let dataController: DataController
 
-        private let schedulesController: NSFetchedResultsController<Schedule>
+    private let schedulesController: NSFetchedResultsController<Schedule>
 
-        @AppStorage("lastChecked") private var lastChecked = Date.now.timeIntervalSinceReferenceDate
+    @AppStorage("lastChecked") private var lastChecked = Date.now.timeIntervalSinceReferenceDate
 
-        @Published var schedules = [Schedule]()
+    @Published var schedules = [Schedule]()
 
-        @Published var showingAddSchedule = false
-        @Published var showingNotificationsError = false
+    @Published var showingAddSchedule = false
+    @Published var showingNotificationsError = false
+    @Published var showingSearchView = false
+    @Published var showingPastSchedule = false
 
-        init(dataController: DataController) {
-            self.dataController = dataController
+    init(dataController: DataController) {
+        self.dataController = dataController
 
-            let request: NSFetchRequest<Schedule> = Schedule.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(keyPath: \Schedule.date, ascending: true)]
+        let request: NSFetchRequest<Schedule> = Schedule.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Schedule.date, ascending: true)]
 
-            schedulesController = NSFetchedResultsController(
-                fetchRequest: request,
-                managedObjectContext: dataController.container.viewContext,
-                sectionNameKeyPath: nil,
-                cacheName: nil
-            )
+        schedulesController = NSFetchedResultsController(
+            fetchRequest: request,
+            managedObjectContext: dataController.container.viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
 
-            super.init()
-            schedulesController.delegate = self
+        super.init()
+        schedulesController.delegate = self
 
-            do {
-                try schedulesController.performFetch()
-                schedules = schedulesController.fetchedObjects ?? []
-            } catch {
-                print("debug: Failed to load coredata")
+        do {
+            try schedulesController.performFetch()
+            schedules = schedulesController.fetchedObjects ?? []
+        } catch {
+            print("debug: Failed to load coredata")
+        }
+    }
+
+    func filteredSchedules(searchString: String) -> [Schedule] {
+        var filtered = [Schedule]()
+
+        for schedule in schedules {
+            if schedule.scheduleName.contains(searchString) {
+                filtered.append(schedule)
             }
         }
 
-        func reload() {
-            do {
-                try schedulesController.performFetch()
-                schedules = schedulesController.fetchedObjects ?? []
-            } catch {
-                print("debug: Failed to load coredata")
-            }
-        }
+        return filtered
+    }
 
-        func checkForReload() {
-            let lastChecked = Date(timeIntervalSinceReferenceDate: lastChecked)
-
-            if Calendar.current.isDateInToday(lastChecked) == false {
-                reload()
-            }
+    func reload() {
+        do {
+            try schedulesController.performFetch()
+            schedules = schedulesController.fetchedObjects ?? []
+        } catch {
+            print("debug: Failed to load coredata")
         }
-        
-        func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-            if let newSchedules = controller.fetchedObjects as? [Schedule] {
-                schedules = newSchedules
-            }
+    }
+
+    func checkForReload() {
+        let lastChecked = Date(timeIntervalSinceReferenceDate: lastChecked)
+
+        if Calendar.current.isDateInToday(lastChecked) == false {
+            reload()
+        }
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        if let newSchedules = controller.fetchedObjects as? [Schedule] {
+            schedules = newSchedules
         }
     }
 }
