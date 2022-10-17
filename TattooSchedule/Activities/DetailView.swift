@@ -15,7 +15,10 @@ struct DetailView: View {
     @Environment(\.dismiss) var dismiss
 
     @ObservedObject var schedule: Schedule
+
     @ObservedObject var imagePicker = ImagePicker()
+
+    let columns = [GridItem(.adaptive(minimum: 100))]
 
     @State private var name: String
     @State private var date: Date
@@ -60,54 +63,23 @@ struct DetailView: View {
                 Text("Design & Comment")
             }
 
-            Section {
-                if let data = designPhoto {
-                    if let uiImage = UIImage(data: data) {
-                        ZStack {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .scaledToFit()
-
-                            PhotosPicker(
-                                selection: $imagePicker.imageSelection,
-                                matching: .images,
-                                preferredItemEncoding: .automatic,
-                                photoLibrary: .shared()
-                            ) {
-                                Text("Select a photo")
-                            }
-                        }
-                        .onChange(of: imagePicker.image) { newPhoto in
-                            if let selectedImage = imagePicker.image {
-                                if let data = selectedImage.jpegData(compressionQuality: 1.0) {
-                                    designPhoto = data
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    PhotosPicker(
-                        selection: $imagePicker.imageSelection,
-                        matching: .images,
-                        preferredItemEncoding: .automatic,
-                        photoLibrary: .shared()
-                    ) {
-                        Text("Select a photo")
-                    }
-                    .onChange(of: imagePicker.image) { newPhoto in
-                        if let selectedImage = imagePicker.image {
-                            if let data = selectedImage.jpegData(compressionQuality: 1.0) {
-                                designPhoto = data
-                            }
-                        }
+            HStack {
+                PhotosPicker(
+                    selection: $imagePicker.imageSelections,
+                    maxSelectionCount: 10,
+                    matching: .images,
+                    preferredItemEncoding: .automatic,
+                    photoLibrary: .shared()
+                ) {
+                    HStack {
+                        Text("Photos")
+                        Image(systemName: "photo.stack")
                     }
                 }
-            } header: {
-                Text("Photo")
             }
 
             Button {
-                switchTwoViews()
+                switchViews()
             } label: {
                 Text(showingEditMode ? "Save" : "Edit")
             }
@@ -136,21 +108,13 @@ struct DetailView: View {
             }
 
             Section {
-                if let data = designPhoto {
-                    if let uiImage = UIImage(data: data) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFit()
-                    }
-                } else {
-                    Text("No photo uploaded.")
-                }
+                
             } header: {
                 Text("Photo")
             }
 
             Button {
-                switchTwoViews()
+                switchViews()
             } label: {
                 Text(showingEditMode ? "Save" : "Edit")
             }
@@ -192,7 +156,7 @@ struct DetailView: View {
         .scrollDismissesKeyboard(.immediately)
     }
 
-    func switchTwoViews() {
+    func switchViews() {
         if showingEditMode {
             saveEditedSchedule(schedule)
             showingEditMode.toggle()

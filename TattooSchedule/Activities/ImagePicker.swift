@@ -10,6 +10,7 @@ import PhotosUI
 
 @MainActor
 class ImagePicker: ObservableObject {
+    // Single image picker
     @Published var image: UIImage?
     @Published var imageSelection: PhotosPickerItem? {
         didSet {
@@ -25,6 +26,34 @@ class ImagePicker: ObservableObject {
         do {
             if let data = try await imageSelection?.loadTransferable(type: Data.self) {
                 self.image = UIImage(data: data)
+            }
+        } catch {
+            print("debug: \(error.localizedDescription)")
+        }
+    }
+
+    // Multiple images picker
+    @Published var images: [UIImage] = []
+
+    @Published var imageSelections: [PhotosPickerItem] = [] {
+        didSet {
+            if !imageSelections.isEmpty {
+                Task {
+                    try await loadTransferable(from: imageSelections)
+                    imageSelections = []
+                }
+            }
+        }
+    }
+
+    func loadTransferable(from imageSelections: [PhotosPickerItem]) async throws {
+        do {
+            for imageSelection in imageSelections {
+                if let data = try await imageSelection.loadTransferable(type: Data.self) {
+                    if let uiImage = UIImage(data: data) {
+                        self.images.append(uiImage)
+                    }
+                }
             }
         } catch {
             print("debug: \(error.localizedDescription)")

@@ -7,7 +7,6 @@
 
 import BackgroundTasks
 import SwiftUI
-import UserNotifications
 
 struct ScheduleView: View {
     @Environment(\.scenePhase) var scenePhase
@@ -19,7 +18,7 @@ struct ScheduleView: View {
 
         _viewModel = StateObject(wrappedValue: viewModel)
     }
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -129,7 +128,7 @@ struct ScheduleView: View {
             }
         }
     }
-    
+
     func isToday(schedule: Schedule) -> Bool {
         let firstDate = Date.now
         let secondDate = schedule.scheduleDate

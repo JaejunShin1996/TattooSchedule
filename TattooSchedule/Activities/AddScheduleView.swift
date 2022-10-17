@@ -16,6 +16,8 @@ struct AddScheduleView: View {
 
     @StateObject var imagePicker = ImagePicker()
 
+    let columns = [GridItem(.adaptive(minimum: 100))]
+
     @State private var name = ""
     @State private var date = Date()
     @State private var design = ""
@@ -44,34 +46,44 @@ struct AddScheduleView: View {
                     Text("Detail & Comment")
                 }
 
-                Section {
-                    if let image = imagePicker.image {
-                        ZStack {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-
-                            PhotosPicker(
-                                selection: $imagePicker.imageSelection,
-                                matching: .images,
-                                preferredItemEncoding: .automatic,
-                                photoLibrary: .shared()
-                            ) {
-                                Text("Select a photo")
-                            }
-                        }
-                    } else {
-                        PhotosPicker(
-                            selection: $imagePicker.imageSelection,
-                            matching: .images,
-                            preferredItemEncoding: .automatic,
-                            photoLibrary: .shared()
-                        ) {
-                            Text("Select a photo")
+                HStack {
+                    PhotosPicker(
+                        selection: $imagePicker.imageSelections,
+                        maxSelectionCount: 10,
+                        matching: .images,
+                        preferredItemEncoding: .automatic,
+                        photoLibrary: .shared()
+                    ) {
+                        HStack {
+                            Text("Photos")
+                            Image(systemName: "photo.stack")
                         }
                     }
-                } header: {
-                    Text("Photo")
+                }
+
+                VStack(alignment: .leading) {
+                    if imagePicker.images.isEmpty {
+                        Text("You have not added any photos yet.")
+                    } else {
+                        ScrollView {
+                            LazyVGrid(columns: columns, spacing: 20) {
+                                ForEach(0..<imagePicker.images.count, id: \.self) { index in
+                                    ZStack(alignment: .topTrailing) {
+                                        Button(role: .destructive) {
+                                            imagePicker.images.remove(at: index)
+                                        } label: {
+                                            Image(systemName: "minus.circle")
+                                        }
+
+                                        Image(uiImage: imagePicker.images[index])
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 150, height: 150)
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
                 Section {
@@ -81,21 +93,14 @@ struct AddScheduleView: View {
                             UIDatePicker.appearance().minuteInterval = 30
                         }
                 }
-                
-                Section {
-                    Button("Save") {
-                        addNewSchedule()
-                        dismiss()
-                    }
-                }
             }
             .navigationTitle("Add New Schedule")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        dismiss()
+                        addNewSchedule()
                     } label: {
-                        Text("Cancel")
+                        Text("Save")
                     }
                 }
             }
@@ -120,9 +125,8 @@ struct AddScheduleView: View {
         newSchedule.date = date
         newSchedule.design = design == "" ? "No detail" : design
         newSchedule.comment = comment == "" ? "No comment" : comment
-        if let selectedImage = imagePicker.image {
-            let data = selectedImage.jpegData(compressionQuality: 1.0)
-            newSchedule.designPhoto = data
+        if !(imagePicker.images.isEmpty) {
+            
         }
 
         dataController.save()

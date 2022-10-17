@@ -9,12 +9,12 @@ import Foundation
 import UserNotifications
 
 class DataController: ObservableObject {
-    var container = NSPersistentCloudKitContainer(name: "Schedule")
+    var container = NSPersistentCloudKitContainer(name: "Main")
 
     let id = UUID().uuidString
     
     init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "Schedule", managedObjectModel: Self.model)
+        container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
 
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
@@ -36,7 +36,7 @@ class DataController: ObservableObject {
     }
 
     static let model: NSManagedObjectModel = {
-        guard let url = Bundle.main.url(forResource: "Schedule", withExtension: "momd") else {
+        guard let url = Bundle.main.url(forResource: "Main", withExtension: "momd") else {
             fatalError("Failed to locate model file.")
         }
 

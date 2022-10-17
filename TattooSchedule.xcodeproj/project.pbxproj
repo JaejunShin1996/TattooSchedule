@@ -13,11 +13,11 @@
 		52286CCF28EEA8CC00194A43 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */; };
 		522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */; };
 		527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A94DF28EE9A9700533E97 /* Assets.xcassets */; };
+		528DFE4C28FD172B006AF459 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */; };
 		52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */; };
 		52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */; };
 		52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47228584EA100E88AEE /* ScheduleView.swift */; };
 		52E9C47828584EA200E88AEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E9C47728584EA200E88AEE /* Preview Assets.xcassets */; };
-		52E9C48028584EE000E88AEE /* Schedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47E28584EE000E88AEE /* Schedule.xcdatamodeld */; };
 		52E9C48228584F7600E88AEE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C48128584F7600E88AEE /* DataController.swift */; };
 		52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4832858518D00E88AEE /* AddScheduleView.swift */; };
 		52E9C4862858540F00E88AEE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4852858540F00E88AEE /* DetailView.swift */; };
@@ -72,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				52E9C48128584F7600E88AEE /* DataController.swift */,
-				52E9C47E28584EE000E88AEE /* Schedule.xcdatamodeld */,
+				52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */,
 			);
 			path = DataController;
 			sourceTree = "<group>";
@@ -201,11 +201,11 @@
 				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
 				5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */,
 				522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */,
-				52E9C48028584EE000E88AEE /* Schedule.xcdatamodeld in Sources */,
 				5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */,
 				52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */,
 				52286CCF28EEA8CC00194A43 /* LaunchScreenView.swift in Sources */,
 				520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */,
+				528DFE4C28FD172B006AF459 /* Main.xcdatamodeld in Sources */,
 				52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,13 +425,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		52E9C47E28584EE000E88AEE /* Schedule.xcdatamodeld */ = {
+		52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				52E9C47F28584EE000E88AEE /* Schedule.xcdatamodel */,
 			);
 			currentVersion = 52E9C47F28584EE000E88AEE /* Schedule.xcdatamodel */;
-			path = Schedule.xcdatamodeld;
+			path = Main.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
