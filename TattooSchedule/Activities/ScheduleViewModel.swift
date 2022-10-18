@@ -47,6 +47,54 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         }
     }
 
+    // Divide Sections for the main view
+    func todaySchedules() -> [Schedule] {
+        var todaySchedules = [Schedule]()
+
+        for schedule in schedules {
+            let scheduleDate = schedule.scheduleDate
+
+            if Calendar.current.isDateInToday(scheduleDate) {
+                todaySchedules.append(schedule)
+            }
+        }
+
+        return todaySchedules
+    }
+
+    func upcomingSchedules() -> [Schedule] {
+        var upcomingSchedules = [Schedule]()
+
+        let tomorrow = Calendar.current.date(byAdding: DateComponents(day: 1), to: Date())!
+
+        for schedule in schedules {
+            let scheduleDate = schedule.scheduleDate
+
+            if scheduleDate >= tomorrow {
+                upcomingSchedules.append(schedule)
+            }
+        }
+
+        return upcomingSchedules
+    }
+
+    func pastSchedules() -> [Schedule] {
+        var pastSchedules = [Schedule]()
+
+        let yesterday = Calendar.current.date(byAdding: DateComponents(day: -1), to: Date())!
+
+        for schedule in schedules {
+            let scheduleDate = schedule.scheduleDate
+
+            if (scheduleDate <= yesterday) {
+                pastSchedules.append(schedule)
+            }
+        }
+
+        return pastSchedules
+    }
+
+    // Schedules for Search View
     func filteredSchedules(searchString: String) -> [Schedule] {
         var filtered = [Schedule]()
 

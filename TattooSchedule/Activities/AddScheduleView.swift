@@ -65,7 +65,7 @@ struct AddScheduleView: View {
                     if imagePicker.images.isEmpty {
                         Text("You have not added any photos yet.")
                     } else {
-                        ScrollView {
+                        ScrollView(showsIndicators: false) {
                             LazyVGrid(columns: columns, spacing: 20) {
                                 ForEach(0..<imagePicker.images.count, id: \.self) { index in
                                     ZStack(alignment: .topTrailing) {
@@ -99,6 +99,7 @@ struct AddScheduleView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         addNewSchedule()
+                        dismiss()
                     } label: {
                         Text("Save")
                     }
@@ -126,7 +127,13 @@ struct AddScheduleView: View {
         newSchedule.design = design == "" ? "No detail" : design
         newSchedule.comment = comment == "" ? "No comment" : comment
         if !(imagePicker.images.isEmpty) {
-            
+            for image in imagePicker.images {
+                if let data = image.pngData() {
+                    let newPhoto = Photo(context: dataController.container.viewContext)
+                    newPhoto.designPhoto = data
+                    newPhoto.schedule = newSchedule
+                }
+            }
         }
 
         dataController.save()

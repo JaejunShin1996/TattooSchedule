@@ -39,6 +39,53 @@ struct DetailView: View {
     @State private var showingEditMode = false
     @State private var showingDeleteAlert = false
 
+    var detailView: some View {
+        Group {
+            Section {
+                Text(schedule.scheduleDate , style: .date)
+                    .font(.title)
+                Text(schedule.scheduleDate , style: .time)
+                    .font(.title)
+            } header: {
+                Text("Time")
+            }
+
+            Section {
+                Text(schedule.scheduleDesign)
+                    .font(.title)
+
+                Text(schedule.scheduleComment)
+                    .font(.title)
+            } header: {
+                Text("Design & Comment")
+            }
+
+            Section {
+                VStack {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(schedule.schedulePhotos) { photo in
+                            if let data = photo.designPhoto {
+                                Image(uiImage: UIImage(data: data)!)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 150, height: 150)
+                            }
+                        }
+                    }
+                }
+            } header: {
+                Text("Photo")
+            }
+
+            Button {
+                switchViews()
+            } label: {
+                Text(showingEditMode ? "Save" : "Edit")
+            }
+
+        }
+    }
+
     var editModeView: some View {
         Group {
             Section {
@@ -63,52 +110,53 @@ struct DetailView: View {
                 Text("Design & Comment")
             }
 
-            HStack {
-                PhotosPicker(
-                    selection: $imagePicker.imageSelections,
-                    maxSelectionCount: 10,
-                    matching: .images,
-                    preferredItemEncoding: .automatic,
-                    photoLibrary: .shared()
-                ) {
+            Section {
+                VStack {
                     HStack {
-                        Text("Photos")
-                        Image(systemName: "photo.stack")
+                        PhotosPicker(
+                            selection: $imagePicker.imageSelections,
+                            maxSelectionCount: 10,
+                            matching: .images,
+                            preferredItemEncoding: .automatic,
+                            photoLibrary: .shared()
+                        ) {
+                            HStack {
+                                Text("Photos")
+                                Image(systemName: "photo.stack")
+                            }
+                        }
+                    }
+
+                    if imagePicker.images.isEmpty {
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(schedule.schedulePhotos) { photo in
+                                if let data = photo.designPhoto {
+                                    Image(uiImage: UIImage(data: data)!)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 150, height: 150)
+                                }
+                            }
+                        }
+                    } else {
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(0..<imagePicker.images.count, id: \.self) { index in
+                                ZStack(alignment: .topTrailing) {
+                                    Button(role: .destructive) {
+                                        imagePicker.images.remove(at: index)
+                                    } label: {
+                                        Image(systemName: "minus.circle")
+                                    }
+
+                                    Image(uiImage: imagePicker.images[index])
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 150, height: 150)
+                                }
+                            }
+                        }
                     }
                 }
-            }
-
-            Button {
-                switchViews()
-            } label: {
-                Text(showingEditMode ? "Save" : "Edit")
-            }
-        }
-    }
-
-    var detailView: some View {
-        Group {
-            Section {
-                Text(schedule.scheduleDate , style: .date)
-                    .font(.title)
-                Text(schedule.scheduleDate , style: .time)
-                    .font(.title)
-            } header: {
-                Text("Time")
-            }
-
-            Section {
-                Text(schedule.scheduleDesign)
-                    .font(.title)
-
-                Text(schedule.scheduleComment)
-                    .font(.title)
-            } header: {
-                Text("Design & Comment")
-            }
-
-            Section {
-                
             } header: {
                 Text("Photo")
             }
@@ -118,7 +166,6 @@ struct DetailView: View {
             } label: {
                 Text(showingEditMode ? "Save" : "Edit")
             }
-
         }
     }
     

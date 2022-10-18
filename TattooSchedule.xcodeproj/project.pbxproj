@@ -10,10 +10,13 @@
 		5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5201901A28E5765C00F79E43 /* ImagePicker.swift */; };
 		520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */; };
 		5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215A02028EBD2A000306643 /* ScheduleViewModel.swift */; };
-		52286CCF28EEA8CC00194A43 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */; };
 		522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */; };
 		527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A94DF28EE9A9700533E97 /* Assets.xcassets */; };
 		528DFE4C28FD172B006AF459 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */; };
+		5295A6D328FE6C6700251FEB /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D228FE6C6700251FEB /* TodayView.swift */; };
+		5295A6D528FE6C7500251FEB /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D428FE6C7500251FEB /* UpcomingView.swift */; };
+		5295A6D728FE6C7B00251FEB /* PastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D628FE6C7B00251FEB /* PastView.swift */; };
+		5295A6D928FE76FE00251FEB /* Photo-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */; };
 		52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */; };
 		52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */; };
 		52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47228584EA100E88AEE /* ScheduleView.swift */; };
@@ -27,11 +30,14 @@
 		5201901A28E5765C00F79E43 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule-CoreDataHelper.swift"; sourceTree = "<group>"; };
 		5215A02028EBD2A000306643 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
-		52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocus.swift; sourceTree = "<group>"; };
 		5234532528E1616D00C89FEC /* TattooSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TattooSchedule.entitlements; sourceTree = "<group>"; };
 		5234532628E161B800C89FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		527A94DF28EE9A9700533E97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5295A6D228FE6C6700251FEB /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		5295A6D428FE6C7500251FEB /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
+		5295A6D628FE6C7B00251FEB /* PastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastView.swift; sourceTree = "<group>"; };
+		5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo-CoreDataHelper.swift"; sourceTree = "<group>"; };
 		52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSearchView.swift; sourceTree = "<group>"; };
 		52E9C46D28584EA100E88AEE /* TattooSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TattooSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TattooScheduleApp.swift; sourceTree = "<group>"; };
@@ -57,13 +63,15 @@
 		520EA4E328E179F800132381 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				52286CCE28EEA8CC00194A43 /* LaunchScreenView.swift */,
 				52E9C47228584EA100E88AEE /* ScheduleView.swift */,
 				5215A02028EBD2A000306643 /* ScheduleViewModel.swift */,
-				52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */,
+				5295A6D228FE6C6700251FEB /* TodayView.swift */,
+				5295A6D428FE6C7500251FEB /* UpcomingView.swift */,
+				5295A6D628FE6C7B00251FEB /* PastView.swift */,
 				52E9C4832858518D00E88AEE /* AddScheduleView.swift */,
-				5201901A28E5765C00F79E43 /* ImagePicker.swift */,
 				52E9C4852858540F00E88AEE /* DetailView.swift */,
+				5201901A28E5765C00F79E43 /* ImagePicker.swift */,
+				52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -81,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */,
+				5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */,
 				522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */,
 			);
 			path = Extentions;
@@ -201,11 +210,14 @@
 				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
 				5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */,
 				522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */,
+				5295A6D528FE6C7500251FEB /* UpcomingView.swift in Sources */,
 				5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */,
 				52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */,
-				52286CCF28EEA8CC00194A43 /* LaunchScreenView.swift in Sources */,
+				5295A6D928FE76FE00251FEB /* Photo-CoreDataHelper.swift in Sources */,
 				520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */,
 				528DFE4C28FD172B006AF459 /* Main.xcdatamodeld in Sources */,
+				5295A6D328FE6C6700251FEB /* TodayView.swift in Sources */,
+				5295A6D728FE6C7B00251FEB /* PastView.swift in Sources */,
 				52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

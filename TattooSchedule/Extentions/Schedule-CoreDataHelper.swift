@@ -24,8 +24,8 @@ extension Schedule {
         comment ?? "Nothing"
     }
 
-    var schedulePhoto: Data {
-        designPhoto ?? Data()
+    var schedulePhotos: [Photo] {
+        photos?.allObjects as? [Photo] ?? []
     }
 
     static var example: Schedule {

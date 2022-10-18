@@ -45,15 +45,6 @@ struct ScheduleSearchView: View {
             }
             .searchable(text: $searchText)
             .navigationTitle("Search")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Cancel")
-                    }
-                }
-            }
         }
     }
 }
