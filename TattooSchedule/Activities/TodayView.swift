@@ -18,7 +18,7 @@ struct TodaySectionView: View {
             List {
                 ForEach(viewModel.todaySchedules()) { schedule in
                     NavigationLink {
-                        DetailView(schedule: schedule)
+                        DetailEditView(schedule: schedule)
                     } label: {
                         VStack(alignment: .leading) {
                             Text(schedule.scheduleName)
@@ -27,6 +27,13 @@ struct TodaySectionView: View {
                             Text(schedule.scheduleDate.formatted())
                         }
                         .font(.title)
+                    }
+                    .contextMenu {
+                        Button(role: .destructive) {
+                            dataController.delete(schedule)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
                     }
                 }
             }

@@ -23,7 +23,7 @@
 		52E9C47828584EA200E88AEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E9C47728584EA200E88AEE /* Preview Assets.xcassets */; };
 		52E9C48228584F7600E88AEE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C48128584F7600E88AEE /* DataController.swift */; };
 		52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4832858518D00E88AEE /* AddScheduleView.swift */; };
-		52E9C4862858540F00E88AEE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4852858540F00E88AEE /* DetailView.swift */; };
+		52E9C4862858540F00E88AEE /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4852858540F00E88AEE /* DetailEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,7 @@
 		52E9C47F28584EE000E88AEE /* Schedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Schedule.xcdatamodel; sourceTree = "<group>"; };
 		52E9C48128584F7600E88AEE /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		52E9C4832858518D00E88AEE /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
-		52E9C4852858540F00E88AEE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		52E9C4852858540F00E88AEE /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 				5295A6D428FE6C7500251FEB /* UpcomingView.swift */,
 				5295A6D628FE6C7B00251FEB /* PastView.swift */,
 				52E9C4832858518D00E88AEE /* AddScheduleView.swift */,
-				52E9C4852858540F00E88AEE /* DetailView.swift */,
+				52E9C4852858540F00E88AEE /* DetailEditView.swift */,
 				5201901A28E5765C00F79E43 /* ImagePicker.swift */,
 				52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */,
 			);
@@ -206,7 +206,7 @@
 			files = (
 				52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */,
 				52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */,
-				52E9C4862858540F00E88AEE /* DetailView.swift in Sources */,
+				52E9C4862858540F00E88AEE /* DetailEditView.swift in Sources */,
 				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
 				5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */,
 				522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */,

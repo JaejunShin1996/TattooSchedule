@@ -27,6 +27,14 @@ struct AddScheduleView: View {
         NavigationView {
             Form {
                 Section {
+                    DatePicker("Select the date", selection: $date)
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .onAppear {
+                            UIDatePicker.appearance().minuteInterval = 30
+                        }
+                }
+
+                Section {
                     TextField("Client Name", text: $name)
                         .focused($focusedField, equals: .clientName)
                         .submitLabel(.done)
@@ -46,53 +54,7 @@ struct AddScheduleView: View {
                     Text("Detail & Comment")
                 }
 
-                HStack {
-                    PhotosPicker(
-                        selection: $imagePicker.imageSelections,
-                        maxSelectionCount: 10,
-                        matching: .images,
-                        preferredItemEncoding: .automatic,
-                        photoLibrary: .shared()
-                    ) {
-                        HStack {
-                            Text("Photos")
-                            Image(systemName: "photo.stack")
-                        }
-                    }
-                }
-
-                VStack(alignment: .leading) {
-                    if imagePicker.images.isEmpty {
-                        Text("You have not added any photos yet.")
-                    } else {
-                        ScrollView(showsIndicators: false) {
-                            LazyVGrid(columns: columns, spacing: 20) {
-                                ForEach(0..<imagePicker.images.count, id: \.self) { index in
-                                    ZStack(alignment: .topTrailing) {
-                                        Button(role: .destructive) {
-                                            imagePicker.images.remove(at: index)
-                                        } label: {
-                                            Image(systemName: "minus.circle")
-                                        }
-
-                                        Image(uiImage: imagePicker.images[index])
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 150, height: 150)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                Section {
-                    DatePicker("Select the date", selection: $date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .onAppear {
-                            UIDatePicker.appearance().minuteInterval = 30
-                        }
-                }
+                photosInAddingView()
             }
             .navigationTitle("Add New Schedule")
             .toolbar {
@@ -119,16 +81,65 @@ struct AddScheduleView: View {
         }
     }
 
+    @ViewBuilder func photosInAddingView() -> some View {
+        Section {
+            PhotosPicker(
+                selection: $imagePicker.imageSelections,
+                maxSelectionCount: 10,
+                matching: .images,
+                preferredItemEncoding: .automatic,
+                photoLibrary: .shared()
+            ) {
+                HStack(alignment: .center) {
+                    Text("Photos")
+                    Image(systemName: "photo.stack")
+                }
+            }
+
+            if !imagePicker.images.isEmpty {
+                VStack {
+                    LazyVGrid(columns: columns, spacing: 5) {
+                        ForEach(0..<imagePicker.images.count, id: \.self) { index in
+                            ZStack(alignment: .topTrailing) {
+                                ZStack {
+                                    Color(.darkGray)
+                                        .opacity(0.5)
+
+                                    Image(uiImage: imagePicker.images[index])
+                                        .resizable()
+                                        .scaledToFit()
+                                }
+                                .cornerRadius(20.0)
+                                .frame(width: 150, height: 160)
+
+                                Button(role: .destructive) {
+                                    withAnimation(.linear(duration: 0.1)) {
+                                        imagePicker.images.remove(atOffsets: IndexSet(integer: index))
+                                    }
+                                } label: {
+                                    Image(systemName: "minus.circle")
+                                }
+                            }
+                            .padding(.vertical, 3)
+                        }
+                    }
+                }
+            }
+        } header: {
+            Text("Photo")
+        }
+    }
+
     func addNewSchedule() {
         let newSchedule = Schedule(context: dataController.container.viewContext)
         newSchedule.id = UUID()
-        newSchedule.name = name
+        newSchedule.name = name == "" ? "John Doe" : name
         newSchedule.date = date
         newSchedule.design = design == "" ? "No detail" : design
         newSchedule.comment = comment == "" ? "No comment" : comment
         if !(imagePicker.images.isEmpty) {
             for image in imagePicker.images {
-                if let data = image.pngData() {
+                if let data = image.jpegData(compressionQuality: 1.0) {
                     let newPhoto = Photo(context: dataController.container.viewContext)
                     newPhoto.designPhoto = data
                     newPhoto.schedule = newSchedule

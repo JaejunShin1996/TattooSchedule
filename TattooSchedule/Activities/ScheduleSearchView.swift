@@ -32,7 +32,7 @@ struct ScheduleSearchView: View {
         NavigationView {
             List {
                 ForEach(searchResults, id: \.self) { schedule in
-                    NavigationLink(destination: DetailView(schedule: schedule)) {
+                    NavigationLink(destination: DetailEditView(schedule: schedule)) {
                         VStack(alignment: .leading) {
                             Text(schedule.scheduleName)
                                 .font(.headline)

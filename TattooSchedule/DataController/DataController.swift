@@ -81,5 +81,6 @@ class DataController: ObservableObject {
 
     func delete(_ object: Schedule) {
         container.viewContext.delete(object)
+        save()
     }
 }

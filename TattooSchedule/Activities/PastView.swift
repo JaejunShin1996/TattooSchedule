@@ -18,7 +18,7 @@ struct PastSectionView: View {
             List {
                 ForEach(viewModel.pastSchedules()) { schedule in
                     NavigationLink {
-                        DetailView(schedule: schedule)
+                        DetailEditView(schedule: schedule)
                     } label: {
                         VStack(alignment: .leading) {
                             Text(schedule.scheduleName)
@@ -28,6 +28,13 @@ struct PastSectionView: View {
                         }
                         .font(.headline)
                         .foregroundColor(.secondary)
+                    }
+                    .contextMenu {
+                        Button(role: .destructive) {
+                            dataController.delete(schedule)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
                     }
                 }
             }

@@ -70,7 +70,7 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         for schedule in schedules {
             let scheduleDate = schedule.scheduleDate
 
-            if scheduleDate >= tomorrow {
+            if scheduleDate >= tomorrow || Calendar.current.isDateInTomorrow(scheduleDate) {
                 upcomingSchedules.append(schedule)
             }
         }
@@ -86,12 +86,12 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         for schedule in schedules {
             let scheduleDate = schedule.scheduleDate
 
-            if (scheduleDate <= yesterday) {
+            if (scheduleDate <= yesterday) || Calendar.current.isDateInYesterday(scheduleDate) {
                 pastSchedules.append(schedule)
             }
         }
 
-        return pastSchedules
+        return pastSchedules.sorted { $0.scheduleDate > $1.scheduleDate }
     }
 
     // Schedules for Search View
