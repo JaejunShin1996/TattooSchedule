@@ -40,7 +40,7 @@ class ImagePicker: ObservableObject {
             if !imageSelections.isEmpty {
                 Task {
                     try await loadTransferable(from: imageSelections)
-                    imageSelections = []
+//                    imageSelections = []
                 }
             }
         }
@@ -48,6 +48,7 @@ class ImagePicker: ObservableObject {
 
     func loadTransferable(from imageSelections: [PhotosPickerItem]) async throws {
         do {
+            images.removeAll(keepingCapacity: true)
             for imageSelection in imageSelections {
                 if let data = try await imageSelection.loadTransferable(type: Data.self) {
                     if let uiImage = UIImage(data: data) {

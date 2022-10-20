@@ -27,14 +27,6 @@ struct AddScheduleView: View {
         NavigationView {
             Form {
                 Section {
-                    DatePicker("Select the date", selection: $date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .onAppear {
-                            UIDatePicker.appearance().minuteInterval = 30
-                        }
-                }
-
-                Section {
                     TextField("Client Name", text: $name)
                         .focused($focusedField, equals: .clientName)
                         .submitLabel(.done)
@@ -52,6 +44,16 @@ struct AddScheduleView: View {
                         .submitLabel(.done)
                 } header: {
                     Text("Detail & Comment")
+                }
+
+                Section {
+                    DatePicker("Date & Time", selection: $date)
+                        .datePickerStyle(.compact)
+                        .onAppear {
+                            UIDatePicker.appearance().minuteInterval = 30
+                        }
+                } header: {
+                    Text("Date")
                 }
 
                 photosInAddingView()
@@ -77,7 +79,6 @@ struct AddScheduleView: View {
                     print("Creating account…")
                 }
             }
-            .scrollDismissesKeyboard(.immediately)
         }
     }
 
@@ -100,26 +101,16 @@ struct AddScheduleView: View {
                 VStack {
                     LazyVGrid(columns: columns, spacing: 5) {
                         ForEach(0..<imagePicker.images.count, id: \.self) { index in
-                            ZStack(alignment: .topTrailing) {
-                                ZStack {
-                                    Color(.darkGray)
-                                        .opacity(0.5)
+                            ZStack {
+                                Color(.darkGray)
+                                    .opacity(0.5)
 
-                                    Image(uiImage: imagePicker.images[index])
-                                        .resizable()
-                                        .scaledToFit()
-                                }
-                                .cornerRadius(10.0)
-                                .frame(width: 150, height: 160)
-
-                                Button(role: .destructive) {
-                                    withAnimation(.linear(duration: 0.1)) {
-                                        imagePicker.images.remove(atOffsets: IndexSet(integer: index))
-                                    }
-                                } label: {
-                                    Image(systemName: "minus.circle")
-                                }
+                                Image(uiImage: imagePicker.images[index])
+                                    .resizable()
+                                    .scaledToFit()
                             }
+                            .cornerRadius(10.0)
+                            .frame(width: 150, height: 160)
                             .padding(.vertical, 3)
                         }
                     }

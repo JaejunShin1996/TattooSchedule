@@ -10,6 +10,7 @@
 		5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5201901A28E5765C00F79E43 /* ImagePicker.swift */; };
 		520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */; };
 		5210763B2900EC17002A1253 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */; };
+		5210763D2900F63D002A1253 /* KeyDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210763C2900F63D002A1253 /* KeyDismissExtension.swift */; };
 		5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215A02028EBD2A000306643 /* ScheduleViewModel.swift */; };
 		522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */; };
 		527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A94DF28EE9A9700533E97 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		5201901A28E5765C00F79E43 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule-CoreDataHelper.swift"; sourceTree = "<group>"; };
+		5210763C2900F63D002A1253 /* KeyDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDismissExtension.swift; sourceTree = "<group>"; };
 		5215A02028EBD2A000306643 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocus.swift; sourceTree = "<group>"; };
 		5234532528E1616D00C89FEC /* TattooSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TattooSchedule.entitlements; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */,
 				5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */,
 				522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */,
+				5210763C2900F63D002A1253 /* KeyDismissExtension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
 				5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */,
 				522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */,
+				5210763D2900F63D002A1253 /* KeyDismissExtension.swift in Sources */,
 				5295A6D528FE6C7500251FEB /* UpcomingView.swift in Sources */,
 				5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */,
 				52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */,

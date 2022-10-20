@@ -15,24 +15,30 @@ struct TodaySectionView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.todaySchedules()) { schedule in
-                    NavigationLink {
-                        DetailEditView(viewModel: viewModel, schedule: schedule)
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(schedule.scheduleName)
-                                .bold()
+            Group {
+                if viewModel.todaySchedules().isEmpty {
+                    Text("No today schedules.")
+                } else {
+                    List {
+                        ForEach(viewModel.todaySchedules()) { schedule in
+                            NavigationLink {
+                                DetailEditView(viewModel: viewModel, schedule: schedule)
+                            } label: {
+                                VStack(alignment: .leading) {
+                                    Text(schedule.scheduleName)
+                                        .bold()
 
-                            Text(schedule.scheduleDate.formatted())
-                        }
-                        .font(.title)
-                    }
-                    .contextMenu {
-                        Button(role: .destructive) {
-                            dataController.delete(schedule)
-                        } label: {
-                            Label("Delete", systemImage: "trash")
+                                    Text(schedule.scheduleDate.formatted())
+                                }
+                                .font(.title)
+                            }
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    dataController.delete(schedule)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                         }
                     }
                 }

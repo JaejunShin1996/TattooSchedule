@@ -68,13 +68,21 @@ struct DetailEditView: View {
     var editView: some View {
         Group {
             Section {
-                DatePicker("Select the date", selection: $date)
-                    .datePickerStyle(GraphicalDatePickerStyle())
+                DatePicker("Date & Time", selection: $date)
+                    .datePickerStyle(.compact)
                     .onAppear {
                         UIDatePicker.appearance().minuteInterval = 30
                     }
             } header: {
                 Text("Date")
+            }
+
+            Section {
+                TextField("Client Name", text: $name)
+                    .focused($focusedField, equals: .clientName)
+                    .submitLabel(.done)
+            } header: {
+                Text("Name")
             }
 
             Section {
@@ -126,13 +134,14 @@ struct DetailEditView: View {
         }
         .onSubmit {
             switch focusedField {
+            case .clientName:
+                focusedField = .design
             case .design:
                 focusedField = .comment
             default:
-                print("Text Field Editing…")
+                print("Creating account…")
             }
         }
-        .scrollDismissesKeyboard(.immediately)
     }
 
     @ViewBuilder func photosInDetailView() -> some View {
@@ -200,26 +209,16 @@ struct DetailEditView: View {
                 VStack {
                     LazyVGrid(columns: columns, spacing: 5) {
                         ForEach(0..<imagePicker.images.count, id: \.self) { index in
-                            ZStack(alignment: .topTrailing) {
-                                ZStack {
-                                    Color(.darkGray)
-                                        .opacity(0.5)
+                            ZStack {
+                                Color(.darkGray)
+                                    .opacity(0.5)
 
-                                    Image(uiImage: imagePicker.images[index])
-                                        .resizable()
-                                        .scaledToFit()
-                                }
-                                .cornerRadius(20.0)
-                                .frame(width: 150, height: 160)
-
-                                Button(role: .destructive) {
-                                    withAnimation(.linear) {
-                                        imagePicker.images.remove(atOffsets: IndexSet(integer: index))
-                                    }
-                                } label: {
-                                    Image(systemName: "minus.circle")
-                                }
+                                Image(uiImage: imagePicker.images[index])
+                                    .resizable()
+                                    .scaledToFit()
                             }
+                            .cornerRadius(20.0)
+                            .frame(width: 150, height: 160)
                             .padding(.vertical, 3)
                         }
                     }
