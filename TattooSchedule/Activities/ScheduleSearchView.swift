@@ -30,15 +30,28 @@ struct ScheduleSearchView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(searchResults, id: \.self) { schedule in
-                    NavigationLink(destination: DetailEditView(viewModel: viewModel, schedule: schedule)) {
-                        VStack(alignment: .leading) {
-                            Text(schedule.scheduleName)
+            Group {
+                if searchResults.isEmpty {
+                    VStack {
+                        Spacer()
+                        
+                        Text("Search for a client's name.")
 
-                            Text(schedule.scheduleDate.formatted())
+                        Spacer()
+                        Spacer()
+                    }
+                } else {
+                    List {
+                        ForEach(searchResults, id: \.self) { schedule in
+                            NavigationLink(destination: DetailEditView(viewModel: viewModel, schedule: schedule)) {
+                                VStack(alignment: .leading) {
+                                    Text(schedule.scheduleName)
+
+                                    Text(schedule.scheduleDate.formatted())
+                                }
+                                .font(.headline)
+                            }
                         }
-                        .font(.headline)
                     }
                 }
             }
