@@ -11,4 +11,8 @@ extension Photo {
     var schedulePhoto: Data {
         designPhoto ?? Data()
     }
+
+    var photoCreationTime: Date {
+        creationTime ?? Date.now
+    }
 }

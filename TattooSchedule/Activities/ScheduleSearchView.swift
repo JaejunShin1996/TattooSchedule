@@ -32,14 +32,13 @@ struct ScheduleSearchView: View {
         NavigationView {
             List {
                 ForEach(searchResults, id: \.self) { schedule in
-                    NavigationLink(destination: DetailEditView(schedule: schedule)) {
+                    NavigationLink(destination: DetailEditView(viewModel: viewModel, schedule: schedule)) {
                         VStack(alignment: .leading) {
                             Text(schedule.scheduleName)
-                                .font(.headline)
 
                             Text(schedule.scheduleDate.formatted())
-                                .font(.headline)
                         }
+                        .font(.headline)
                     }
                 }
             }

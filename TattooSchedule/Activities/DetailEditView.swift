@@ -10,11 +10,8 @@ import PhotosUI
 
 struct DetailEditView: View {
     @FocusState private var focusedField: Field?
-
-    @EnvironmentObject var dataController: DataController
     @Environment(\.dismiss) var dismiss
-
-    @ObservedObject var schedule: Schedule
+    @EnvironmentObject var dataController: DataController
 
     @ObservedObject var imagePicker = ImagePicker()
 
@@ -26,7 +23,11 @@ struct DetailEditView: View {
     @State private var comment: String
     @State private var designPhoto: Data?
 
-    init(schedule: Schedule) {
+    @ObservedObject var viewModel: ViewModel
+    @ObservedObject var schedule: Schedule
+
+    init(viewModel: ViewModel, schedule: Schedule) {
+        self.viewModel = viewModel
         self.schedule = schedule
 
         _name = State(wrappedValue: schedule.scheduleName)
@@ -138,7 +139,7 @@ struct DetailEditView: View {
         Section {
             VStack {
                 LazyVGrid(columns: columns, spacing: 5) {
-                    ForEach(schedule.schedulePhotos) { photo in
+                    ForEach(viewModel.sortedImages(schedule)) { photo in
                         if let data = photo.designPhoto {
                             ZStack {
                                 Color(.darkGray)
@@ -148,7 +149,7 @@ struct DetailEditView: View {
                                     .resizable()
                                     .scaledToFit()
                             }
-                            .cornerRadius(20.0)
+                            .cornerRadius(10.0)
                             .frame(width: 150, height: 160)
                         }
                     }
@@ -170,7 +171,7 @@ struct DetailEditView: View {
                 photoLibrary: .shared()
             ) {
                 HStack {
-                    Text("Photos")
+                    Text("Reselect photos")
                     Image(systemName: "photo.stack")
                 }
             }
@@ -178,20 +179,18 @@ struct DetailEditView: View {
             if imagePicker.images.isEmpty {
                 VStack {
                     LazyVGrid(columns: columns, spacing: 5) {
-                        ForEach(schedule.schedulePhotos) { photo in
+                        ForEach(viewModel.sortedImages(schedule)) { photo in
                             if let data = photo.designPhoto {
                                 ZStack {
-                                    ZStack {
-                                        Color(.darkGray)
-                                            .opacity(0.5)
+                                    Color(.darkGray)
+                                        .opacity(0.5)
 
-                                        Image(uiImage: UIImage(data: data)!)
-                                            .resizable()
-                                            .scaledToFit()
-                                    }
-                                    .cornerRadius(20.0)
-                                    .frame(width: 150, height: 160)
+                                    Image(uiImage: UIImage(data: data)!)
+                                        .resizable()
+                                        .scaledToFit()
                                 }
+                                .cornerRadius(10.0)
+                                .frame(width: 150, height: 160)
                             }
                         }
                         .padding(.vertical, 3)
@@ -252,6 +251,7 @@ struct DetailEditView: View {
                 if let data = image.jpegData(compressionQuality: 1.0) {
                     let newPhoto = Photo(context: dataController.container.viewContext)
                     newPhoto.designPhoto = data
+                    newPhoto.creationTime = Date.now
                     newPhoto.schedule = editedSchedule
                 }
             }

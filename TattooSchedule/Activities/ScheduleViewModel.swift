@@ -94,6 +94,11 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         return pastSchedules.sorted { $0.scheduleDate > $1.scheduleDate }
     }
 
+    // Sorts images in the nssset of coredata
+    func sortedImages(_ schedule: Schedule) -> [Photo] {
+        schedule.schedulePhotos.sorted { $0.photoCreationTime < $1.photoCreationTime }
+    }
+
     // Schedules for Search View
     func filteredSchedules(searchString: String) -> [Schedule] {
         var filtered = [Schedule]()

@@ -83,4 +83,9 @@ class DataController: ObservableObject {
         container.viewContext.delete(object)
         save()
     }
+
+    func deletePhoto(_ object: Photo) {
+        container.viewContext.delete(object)
+        save()
+    }
 }

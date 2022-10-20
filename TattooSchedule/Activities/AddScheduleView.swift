@@ -109,7 +109,7 @@ struct AddScheduleView: View {
                                         .resizable()
                                         .scaledToFit()
                                 }
-                                .cornerRadius(20.0)
+                                .cornerRadius(10.0)
                                 .frame(width: 150, height: 160)
 
                                 Button(role: .destructive) {
@@ -142,6 +142,7 @@ struct AddScheduleView: View {
                 if let data = image.jpegData(compressionQuality: 1.0) {
                     let newPhoto = Photo(context: dataController.container.viewContext)
                     newPhoto.designPhoto = data
+                    newPhoto.creationTime = Date.now
                     newPhoto.schedule = newSchedule
                 }
             }

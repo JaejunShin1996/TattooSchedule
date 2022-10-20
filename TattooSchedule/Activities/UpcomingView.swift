@@ -18,7 +18,7 @@ struct UpcomingSectionView: View {
             List {
                 ForEach(viewModel.upcomingSchedules()) { schedule in
                     NavigationLink {
-                        DetailEditView(schedule: schedule)
+                        DetailEditView(viewModel: viewModel, schedule: schedule)
                     } label: {
                         VStack(alignment: .leading) {
                             Text(schedule.scheduleName)

@@ -25,7 +25,7 @@ extension Schedule {
     }
 
     var schedulePhotos: [Photo] {
-        photos?.allObjects as? Array<Photo> ?? []
+        photos?.allObjects as? [Photo] ?? []
     }
 
     static var example: Schedule {
