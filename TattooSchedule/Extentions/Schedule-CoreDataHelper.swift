@@ -28,6 +28,10 @@ extension Schedule {
         photos?.allObjects as? [Photo] ?? []
     }
 
+    var month: String {
+        scheduleDate.formatted(.dateTime.year().month(.wide))
+    }
+
     static var example: Schedule {
         let controller = DataController.preview
         let viewContext = controller.container.viewContext

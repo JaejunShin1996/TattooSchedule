@@ -13,6 +13,8 @@
 		5210763D2900F63D002A1253 /* KeyDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210763C2900F63D002A1253 /* KeyDismissExtension.swift */; };
 		5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215A02028EBD2A000306643 /* ScheduleViewModel.swift */; };
 		522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */; };
+		5252CB4729039B5200FC9896 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 5252CB4629039B5200FC9896 /* Collections */; };
+		5252CB492903A02700FC9896 /* SortedPastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252CB482903A02700FC9896 /* SortedPastView.swift */; };
 		527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A94DF28EE9A9700533E97 /* Assets.xcassets */; };
 		5295A6D328FE6C6700251FEB /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D228FE6C6700251FEB /* TodayView.swift */; };
 		5295A6D528FE6C7500251FEB /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D428FE6C7500251FEB /* UpcomingView.swift */; };
@@ -35,6 +37,7 @@
 		522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocus.swift; sourceTree = "<group>"; };
 		5234532528E1616D00C89FEC /* TattooSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TattooSchedule.entitlements; sourceTree = "<group>"; };
 		5234532628E161B800C89FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5252CB482903A02700FC9896 /* SortedPastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedPastView.swift; sourceTree = "<group>"; };
 		527A94DF28EE9A9700533E97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5295A6D228FE6C6700251FEB /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		5295A6D428FE6C7500251FEB /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5252CB4729039B5200FC9896 /* Collections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +74,7 @@
 				5295A6D228FE6C6700251FEB /* TodayView.swift */,
 				5295A6D428FE6C7500251FEB /* UpcomingView.swift */,
 				5295A6D628FE6C7B00251FEB /* PastView.swift */,
+				5252CB482903A02700FC9896 /* SortedPastView.swift */,
 				52E9C4832858518D00E88AEE /* AddScheduleView.swift */,
 				52E9C4852858540F00E88AEE /* DetailEditView.swift */,
 				5201901A28E5765C00F79E43 /* ImagePicker.swift */,
@@ -153,6 +158,9 @@
 			dependencies = (
 			);
 			name = TattooSchedule;
+			packageProductDependencies = (
+				5252CB4629039B5200FC9896 /* Collections */,
+			);
 			productName = TattooSchedule;
 			productReference = 52E9C46D28584EA100E88AEE /* TattooSchedule.app */;
 			productType = "com.apple.product-type.application";
@@ -181,6 +189,9 @@
 				Base,
 			);
 			mainGroup = 52E9C46428584EA100E88AEE;
+			packageReferences = (
+				5252CB4529039B5200FC9896 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 52E9C46E28584EA100E88AEE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -221,6 +232,7 @@
 				5295A6D928FE76FE00251FEB /* Photo-CoreDataHelper.swift in Sources */,
 				520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */,
 				5295A6D328FE6C6700251FEB /* TodayView.swift in Sources */,
+				5252CB492903A02700FC9896 /* SortedPastView.swift in Sources */,
 				5295A6D728FE6C7B00251FEB /* PastView.swift in Sources */,
 				52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */,
 			);
@@ -439,6 +451,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5252CB4529039B5200FC9896 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5252CB4629039B5200FC9896 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5252CB4529039B5200FC9896 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */ = {

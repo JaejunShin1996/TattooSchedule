@@ -19,29 +19,7 @@ struct PastSectionView: View {
                 if viewModel.pastSchedules().isEmpty {
                     Text("No past schedules.")
                 } else {
-                    List {
-                        ForEach(viewModel.pastSchedules()) { schedule in
-                            NavigationLink {
-                                DetailEditView(viewModel: viewModel, schedule: schedule)
-                            } label: {
-                                VStack(alignment: .leading) {
-                                    Text(schedule.scheduleName)
-                                        .bold()
-
-                                    Text(schedule.scheduleDate.formatted())
-                                }
-                                .font(.headline)
-                                .foregroundColor(.secondary)
-                            }
-                            .contextMenu {
-                                Button(role: .destructive) {
-                                    dataController.delete(schedule)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                            }
-                        }
-                    }
+                    SortedPastView(viewModel: viewModel, dataController: dataController)
                 }
             }
             .navigationTitle("Past")

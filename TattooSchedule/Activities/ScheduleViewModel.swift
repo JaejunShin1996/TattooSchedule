@@ -8,6 +8,9 @@
 import CoreData
 import Foundation
 import SwiftUI
+import Collections
+
+typealias ScheduleGroup = OrderedDictionary<String, [Schedule]>
 
 class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
     let dataController: DataController
@@ -110,6 +113,15 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         }
 
         return filtered
+    }
+
+    // Groups schedules by month.
+    func groupSchedulesByMonth() -> ScheduleGroup {
+        guard !schedules.isEmpty else { return [:] }
+
+        let groupedSchedules = ScheduleGroup(grouping: schedules) { $0.month }
+
+        return groupedSchedules
     }
 
     func reload() {
