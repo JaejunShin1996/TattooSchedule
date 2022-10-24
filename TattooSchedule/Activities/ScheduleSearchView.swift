@@ -34,7 +34,7 @@ struct ScheduleSearchView: View {
                 if searchResults.isEmpty {
                     VStack {
                         Spacer()
-                        
+
                         Text("Search for a client's name.")
 
                         Spacer()

@@ -43,9 +43,9 @@ struct DetailEditView: View {
     var detailView: some View {
         Group {
             Section {
-                Text(schedule.scheduleDate , style: .date)
+                Text(schedule.scheduleDate, style: .date)
                     .font(.title)
-                Text(schedule.scheduleDate , style: .time)
+                Text(schedule.scheduleDate, style: .time)
                     .font(.title)
             } header: {
                 Text("Time")
@@ -100,7 +100,7 @@ struct DetailEditView: View {
             photosInEditView()
         }
     }
-    
+
     var body: some View {
         Form {
             if !showingEditMode {
@@ -142,6 +142,7 @@ struct DetailEditView: View {
                 print("Creating account…")
             }
         }
+        .scrollDismissesKeyboard(.interactively)
     }
 
     @ViewBuilder func photosInDetailView() -> some View {
@@ -184,7 +185,7 @@ struct DetailEditView: View {
                     Image(systemName: "photo.stack")
                 }
             }
-            
+
             if imagePicker.images.isEmpty {
                 VStack {
                     LazyVGrid(columns: columns, spacing: 5) {
@@ -258,10 +259,9 @@ struct DetailEditView: View {
 
         dataController.save()
     }
-    
+
     func deleteSchedule() {
         dataController.delete(schedule)
         dismiss()
     }
 }
-

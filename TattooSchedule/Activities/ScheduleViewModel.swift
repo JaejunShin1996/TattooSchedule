@@ -106,10 +106,8 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
     func filteredSchedules(searchString: String) -> [Schedule] {
         var filtered = [Schedule]()
 
-        for schedule in schedules {
-            if schedule.scheduleName.contains(searchString) {
-                filtered.append(schedule)
-            }
+        for schedule in schedules where schedule.scheduleName.contains(searchString) {
+            filtered.append(schedule)
         }
 
         return filtered

@@ -12,7 +12,7 @@ class DataController: ObservableObject {
     var container = NSPersistentCloudKitContainer(name: "Main")
 
     let id = UUID().uuidString
-    
+
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
 

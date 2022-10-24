@@ -42,6 +42,6 @@ struct SortedPastView: View {
                 }
             }
         }
-        .listStyle(.plain)
+        .listStyle(InsetGroupedListStyle())
     }
 }

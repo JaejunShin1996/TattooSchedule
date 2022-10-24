@@ -22,7 +22,7 @@ struct AddScheduleView: View {
     @State private var date = Date()
     @State private var design = ""
     @State private var comment = ""
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -33,7 +33,7 @@ struct AddScheduleView: View {
                 } header: {
                     Text("Name")
                 }
-                
+
                 Section {
                     TextField("Design", text: $design)
                         .focused($focusedField, equals: .design)
@@ -79,6 +79,7 @@ struct AddScheduleView: View {
                     print("Creating account…")
                 }
             }
+            .scrollDismissesKeyboard(.immediately)
         }
     }
 

@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct TattooScheduleApp: App {
     @StateObject private var dataController = DataController()
-    
+
     var body: some Scene {
         WindowGroup {
             ScheduleView(dataController: dataController)
