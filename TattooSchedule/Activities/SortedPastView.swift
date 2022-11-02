@@ -13,7 +13,7 @@ struct SortedPastView: View {
 
     var body: some View {
         List {
-            ForEach(Array(viewModel.groupSchedulesByMonth()), id: \.key) { month, schedules in
+            ForEach(Array(viewModel.groupSchedulesByMonth()).reversed(), id: \.key) { month, schedules in
                 Section {
                     ForEach(schedules) { schedule in
                         NavigationLink {

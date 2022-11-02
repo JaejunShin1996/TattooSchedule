@@ -77,7 +77,6 @@
 				5252CB482903A02700FC9896 /* SortedPastView.swift */,
 				52E9C4832858518D00E88AEE /* AddScheduleView.swift */,
 				52E9C4852858540F00E88AEE /* DetailEditView.swift */,
-				5201901A28E5765C00F79E43 /* ImagePicker.swift */,
 				52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */,
 			);
 			path = Activities;
@@ -103,6 +102,14 @@
 			path = Extentions;
 			sourceTree = "<group>";
 		};
+		5286EECE2908EA4A0075A66A /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				5201901A28E5765C00F79E43 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		52E9C46428584EA100E88AEE = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */,
+				5286EECE2908EA4A0075A66A /* ImagePicker */,
 				520EA4E328E179F800132381 /* Activities */,
 				520EA4E528E17B7C00132381 /* Extentions */,
 				520EA4E428E17A0500132381 /* DataController */,
