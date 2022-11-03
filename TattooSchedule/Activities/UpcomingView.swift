@@ -13,6 +13,9 @@ struct UpcomingSectionView: View {
     @ObservedObject var viewModel: ViewModel
     @ObservedObject var dataController: DataController
 
+    @State private var showingAddSchedule = false
+    @State private var showingSearchView = false
+
     var body: some View {
         NavigationView {
             Group {
@@ -47,7 +50,7 @@ struct UpcomingSectionView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        viewModel.showingAddSchedule.toggle()
+                        showingAddSchedule.toggle()
                     } label: {
                         Label("Add Schedule", systemImage: "plus")
                     }
@@ -55,14 +58,17 @@ struct UpcomingSectionView: View {
 
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        viewModel.showingSearchView.toggle()
+                        showingSearchView.toggle()
                     } label: {
                         Label("Search for schedules", systemImage: "magnifyingglass")
                     }
                 }
             }
-            .sheet(isPresented: $viewModel.showingAddSchedule) {
+            .sheet(isPresented: $showingAddSchedule) {
                 AddScheduleView()
+            }
+            .sheet(isPresented: $showingSearchView) {
+                ScheduleSearchView(dataController: dataController)
             }
         }
     }

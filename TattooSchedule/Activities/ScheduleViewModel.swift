@@ -21,9 +21,7 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 
     @Published var schedules = [Schedule]()
 
-    @Published var showingAddSchedule = false
     @Published var showingNotificationsError = false
-    @Published var showingSearchView = false
     @Published var showingPastSchedule = false
 
     init(dataController: DataController) {
@@ -123,11 +121,16 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
     }
 
     func reload() {
-        do {
-            try schedulesController.performFetch()
-            schedules = schedulesController.fetchedObjects ?? []
-        } catch {
-            print("debug: Failed to load coredata")
+        DispatchQueue.global(qos: .background).async {
+            do {
+                try self.schedulesController.performFetch()
+
+                DispatchQueue.main.async {
+                    self.schedules = self.schedulesController.fetchedObjects ?? []
+                }
+            } catch {
+                print("debug: Failed to load coredata")
+            }
         }
     }
 
