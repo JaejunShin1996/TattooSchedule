@@ -5,6 +5,7 @@
 //  Created by Jaejun Shin on 14/6/2022.
 //
 
+import ImageViewer
 import SwiftUI
 import PhotosUI
 
@@ -14,6 +15,9 @@ struct DetailEditView: View {
     @EnvironmentObject var dataController: DataController
 
     @ObservedObject var imagePicker = ImagePicker()
+
+    @State private var selectedPhoto = Image(systemName: "flame.fill")
+    @State private var showingImageViewer = false
 
     let columns = [GridItem(.adaptive(minimum: 100))]
 
@@ -68,13 +72,11 @@ struct DetailEditView: View {
     var editView: some View {
         Group {
             Section {
-                DatePicker("Date & Time", selection: $date)
+                DatePicker("Date", selection: $date)
                     .datePickerStyle(.compact)
                     .onAppear {
                         UIDatePicker.appearance().minuteInterval = 30
                     }
-            } header: {
-                Text("Date")
             }
 
             Section {
@@ -126,6 +128,13 @@ struct DetailEditView: View {
                 Label("Delete the schedule", systemImage: "trash")
             }
         }
+        .overlay(
+            ImageViewer(
+                image: $selectedPhoto,
+                viewerShown: $showingImageViewer,
+                closeButtonTopRight: true
+            )
+        )
         .alert("Delete this Schedule?", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive, action: deleteSchedule)
             Button("Cancel", role: .cancel) {}
@@ -147,25 +156,27 @@ struct DetailEditView: View {
 
     @ViewBuilder func photosInDetailView() -> some View {
         Section {
-            VStack {
-                LazyVGrid(columns: columns, spacing: 5) {
-                    ForEach(viewModel.sortedImages(schedule)) { photo in
-                        if let data = photo.designPhoto {
-                            ZStack {
-                                Color(.darkGray)
-                                    .opacity(0.5)
+            LazyVGrid(columns: columns, spacing: 5) {
+                ForEach(viewModel.sortedImages(schedule)) { photo in
+                    if let data = photo.designPhoto {
+                        ZStack {
+                            Color(.darkGray)
+                                .opacity(0.5)
 
-                                Image(uiImage: UIImage(data: data)!)
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                            .cornerRadius(10.0)
-                            .frame(width: 150, height: 160)
+                            Image(uiImage: UIImage(data: data)!)
+                                .resizable()
+                                .scaledToFit()
+                        }
+                        .cornerRadius(10.0)
+                        .frame(width: (UIScreen.main.bounds.width - 20) * 0.4, height: 160)
+                        .onTapGesture {
+                            selectedPhoto = Image(uiImage: UIImage(data: data)!)
+                            showingImageViewer.toggle()
                         }
                     }
-                    .padding(.vertical, 3)
                 }
-                }
+                .padding(.vertical, 3)
+            }
         } header: {
             Text("Photo")
         }
@@ -200,7 +211,7 @@ struct DetailEditView: View {
                                         .scaledToFit()
                                 }
                                 .cornerRadius(10.0)
-                                .frame(width: 150, height: 160)
+                                .frame(width: (UIScreen.main.bounds.width - 20) * 0.4, height: 160)
                             }
                         }
                         .padding(.vertical, 3)

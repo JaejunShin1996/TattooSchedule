@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5201901A28E5765C00F79E43 /* ImagePicker.swift */; };
+		520B6F4E291A411D005DAC90 /* LongPressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B6F4D291A411D005DAC90 /* LongPressButton.swift */; };
 		520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */; };
 		5210763B2900EC17002A1253 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */; };
 		5210763D2900F63D002A1253 /* KeyDismissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210763C2900F63D002A1253 /* KeyDismissExtension.swift */; };
@@ -27,10 +28,12 @@
 		52E9C48228584F7600E88AEE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C48128584F7600E88AEE /* DataController.swift */; };
 		52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4832858518D00E88AEE /* AddScheduleView.swift */; };
 		52E9C4862858540F00E88AEE /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4852858540F00E88AEE /* DetailEditView.swift */; };
+		52FE5C17291CDE24009B791A /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 52FE5C16291CDE24009B791A /* ImageViewer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5201901A28E5765C00F79E43 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		520B6F4D291A411D005DAC90 /* LongPressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressButton.swift; sourceTree = "<group>"; };
 		520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule-CoreDataHelper.swift"; sourceTree = "<group>"; };
 		5210763C2900F63D002A1253 /* KeyDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDismissExtension.swift; sourceTree = "<group>"; };
 		5215A02028EBD2A000306643 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FE5C17291CDE24009B791A /* ImageViewer in Frameworks */,
 				5252CB4729039B5200FC9896 /* Collections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		520B6F4F291A4BCF005DAC90 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				520B6F4D291A411D005DAC90 /* LongPressButton.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		520EA4E328E179F800132381 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +144,7 @@
 				52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */,
 				5286EECE2908EA4A0075A66A /* ImagePicker */,
 				520EA4E328E179F800132381 /* Activities */,
+				520B6F4F291A4BCF005DAC90 /* CustomView */,
 				520EA4E528E17B7C00132381 /* Extentions */,
 				520EA4E428E17A0500132381 /* DataController */,
 				5234532628E161B800C89FEC /* Info.plist */,
@@ -169,6 +182,7 @@
 			name = TattooSchedule;
 			packageProductDependencies = (
 				5252CB4629039B5200FC9896 /* Collections */,
+				52FE5C16291CDE24009B791A /* ImageViewer */,
 			);
 			productName = TattooSchedule;
 			productReference = 52E9C46D28584EA100E88AEE /* TattooSchedule.app */;
@@ -200,6 +214,7 @@
 			mainGroup = 52E9C46428584EA100E88AEE;
 			packageReferences = (
 				5252CB4529039B5200FC9896 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				52FE5C15291CDE24009B791A /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = 52E9C46E28584EA100E88AEE /* Products */;
 			projectDirPath = "";
@@ -266,6 +281,7 @@
 				5252CB492903A02700FC9896 /* SortedPastView.swift in Sources */,
 				5295A6D728FE6C7B00251FEB /* PastView.swift in Sources */,
 				52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */,
+				520B6F4E291A411D005DAC90 /* LongPressButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,14 +418,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TattooSchedule/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tattoo Scheduler";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your permisson to access the library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreenView;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -438,14 +456,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TattooSchedule/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tattoo Scheduler";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your permisson to access the library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreenView;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -492,6 +512,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		52FE5C15291CDE24009B791A /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -499,6 +527,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5252CB4529039B5200FC9896 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = Collections;
+		};
+		52FE5C16291CDE24009B791A /* ImageViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52FE5C15291CDE24009B791A /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewer;
 		};
 /* End XCSwiftPackageProductDependency section */
 

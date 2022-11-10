@@ -6,32 +6,21 @@
 //
 import CoreData
 import Foundation
-import UserNotifications
 
 class DataController: ObservableObject {
-    var container = NSPersistentCloudKitContainer(name: "Main")
+    var container = NSPersistentContainer(name: "Main")
 
     let id = UUID().uuidString
 
-    init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
-
-        if inMemory {
-            container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
-        } else {
-            let groupID = "group.com.jaejunshin.TattooSchedule"
-
-            if let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupID) {
-                container.persistentStoreDescriptions.first?.url = url.appendingPathComponent("Main.sqlite")
-            }
-        }
+    init() {
+        container = NSPersistentContainer(name: "Main", managedObjectModel: Self.model)
 
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Fatal error loading stroe: \(error.localizedDescription)")
             }
 
-            self.container.viewContext.automaticallyMergesChangesFromParent = true
+            self.container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         }
     }
 
@@ -48,7 +37,7 @@ class DataController: ObservableObject {
     }()
 
     static let preview: DataController = {
-        let dataController = DataController(inMemory: true)
+        let dataController = DataController()
 
         do {
             try dataController.createSampleData()

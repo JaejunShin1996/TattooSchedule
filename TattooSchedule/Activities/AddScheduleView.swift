@@ -59,27 +59,27 @@ struct AddScheduleView: View {
                 photosInAddingView()
             }
             .navigationTitle("Add New Schedule")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        addNewSchedule()
-                        dismiss()
-                    } label: {
-                        Text("Save")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            addNewSchedule()
+                            dismiss()
+                        } label: {
+                            Text("Save")
+                        }
                     }
                 }
-            }
-            .onSubmit {
-                switch focusedField {
-                case .clientName:
-                    focusedField = .design
-                case .design:
-                    focusedField = .comment
-                default:
-                    print("Creating account…")
+                .onSubmit {
+                    switch focusedField {
+                    case .clientName:
+                        focusedField = .design
+                    case .design:
+                        focusedField = .comment
+                    default:
+                        print("Creating account…")
+                    }
                 }
-            }
-            .scrollDismissesKeyboard(.immediately)
+                .scrollDismissesKeyboard(.immediately)
         }
     }
 
@@ -111,7 +111,7 @@ struct AddScheduleView: View {
                                     .scaledToFit()
                             }
                             .cornerRadius(10.0)
-                            .frame(width: 150, height: 160)
+                            .frame(width: (UIScreen.main.bounds.width - 20) * 0.4, height: 160)
                             .padding(.vertical, 3)
                         }
                     }
@@ -141,6 +141,7 @@ struct AddScheduleView: View {
         }
 
         dataController.save()
+        dismiss()
     }
 }
 
