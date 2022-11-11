@@ -56,7 +56,7 @@ struct AddScheduleView: View {
                     Text("Date")
                 }
 
-                photosInAddingView()
+                photosInAddingView
             }
             .navigationTitle("Add New Schedule")
                 .toolbar {
@@ -83,7 +83,7 @@ struct AddScheduleView: View {
         }
     }
 
-    @ViewBuilder func photosInAddingView() -> some View {
+    var photosInAddingView: some View {
         Section {
             PhotosPicker(
                 selection: $imagePicker.imageSelections,
@@ -139,6 +139,11 @@ struct AddScheduleView: View {
                 }
             }
         }
+
+        NotificationManager.instance.scheduleNotification(
+            name: newSchedule.scheduleName,
+            time: newSchedule.scheduleDate.formatted(date: .omitted, time: .shortened)
+        )
 
         dataController.save()
         dismiss()

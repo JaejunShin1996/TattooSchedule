@@ -7,6 +7,7 @@
 
 import BackgroundTasks
 import SwiftUI
+import UserNotifications
 
 struct ScheduleView: View {
     @Environment(\.scenePhase) var scenePhase

@@ -22,6 +22,7 @@
 		5295A6D728FE6C7B00251FEB /* PastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D628FE6C7B00251FEB /* PastView.swift */; };
 		5295A6D928FE76FE00251FEB /* Photo-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */; };
 		52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */; };
+		52E3C706291E59C600A0EE95 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3C705291E59C600A0EE95 /* NotificationManager.swift */; };
 		52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */; };
 		52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47228584EA100E88AEE /* ScheduleView.swift */; };
 		52E9C47828584EA200E88AEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E9C47728584EA200E88AEE /* Preview Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		5295A6D628FE6C7B00251FEB /* PastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastView.swift; sourceTree = "<group>"; };
 		5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo-CoreDataHelper.swift"; sourceTree = "<group>"; };
 		52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSearchView.swift; sourceTree = "<group>"; };
+		52E3C705291E59C600A0EE95 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		52E9C46D28584EA100E88AEE /* TattooSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TattooSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TattooScheduleApp.swift; sourceTree = "<group>"; };
 		52E9C47228584EA100E88AEE /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */,
 				522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */,
 				5210763C2900F63D002A1253 /* KeyDismissExtension.swift */,
+				52E3C705291E59C600A0EE95 /* NotificationManager.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */,
 				5295A6D328FE6C6700251FEB /* TodayView.swift in Sources */,
 				5252CB492903A02700FC9896 /* SortedPastView.swift in Sources */,
+				52E3C706291E59C600A0EE95 /* NotificationManager.swift in Sources */,
 				5295A6D728FE6C7B00251FEB /* PastView.swift in Sources */,
 				52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */,
 				520B6F4E291A411D005DAC90 /* LongPressButton.swift in Sources */,

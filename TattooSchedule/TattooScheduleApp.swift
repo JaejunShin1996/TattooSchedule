@@ -17,6 +17,9 @@ struct TattooScheduleApp: App {
             ScheduleView(dataController: dataController)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(dataController)
+                .onAppear {
+                    NotificationManager.instance.requestPermission()
+                }
         }
     }
 }

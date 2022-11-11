@@ -65,7 +65,7 @@ struct DetailEditView: View {
                 Text("Design & Comment")
             }
 
-            photosInDetailView()
+            photosInDetailView
         }
     }
 
@@ -99,7 +99,7 @@ struct DetailEditView: View {
                 Text("Design & Comment")
             }
 
-            photosInEditView()
+            photosInEditView
         }
     }
 
@@ -154,7 +154,7 @@ struct DetailEditView: View {
         .scrollDismissesKeyboard(.interactively)
     }
 
-    @ViewBuilder func photosInDetailView() -> some View {
+    var photosInDetailView: some View {
         Section {
             LazyVGrid(columns: columns, spacing: 5) {
                 ForEach(viewModel.sortedImages(schedule)) { photo in
@@ -181,65 +181,64 @@ struct DetailEditView: View {
             Text("Photo")
         }
     }
-
-    @ViewBuilder func photosInEditView() -> some View {
-        Section {
-            PhotosPicker(
-                selection: $imagePicker.imageSelections,
-                maxSelectionCount: 10,
-                matching: .images,
-                preferredItemEncoding: .automatic,
-                photoLibrary: .shared()
-            ) {
-                HStack {
-                    Text("Reselect photos")
-                    Image(systemName: "photo.stack")
-                }
+    var photosInEditView: some View {
+    Section {
+        PhotosPicker(
+            selection: $imagePicker.imageSelections,
+            maxSelectionCount: 10,
+            matching: .images,
+            preferredItemEncoding: .automatic,
+            photoLibrary: .shared()
+        ) {
+            HStack {
+                Text("Reselect photos")
+                Image(systemName: "photo.stack")
             }
+        }
 
-            if imagePicker.images.isEmpty {
-                VStack {
-                    LazyVGrid(columns: columns, spacing: 5) {
-                        ForEach(viewModel.sortedImages(schedule)) { photo in
-                            if let data = photo.designPhoto {
-                                ZStack {
-                                    Color(.darkGray)
-                                        .opacity(0.5)
-
-                                    Image(uiImage: UIImage(data: data)!)
-                                        .resizable()
-                                        .scaledToFit()
-                                }
-                                .cornerRadius(10.0)
-                                .frame(width: (UIScreen.main.bounds.width - 20) * 0.4, height: 160)
-                            }
-                        }
-                        .padding(.vertical, 3)
-                    }
-                }
-            } else {
-                VStack {
-                    LazyVGrid(columns: columns, spacing: 5) {
-                        ForEach(0..<imagePicker.images.count, id: \.self) { index in
+        if imagePicker.images.isEmpty {
+            VStack {
+                LazyVGrid(columns: columns, spacing: 5) {
+                    ForEach(viewModel.sortedImages(schedule)) { photo in
+                        if let data = photo.designPhoto {
                             ZStack {
                                 Color(.darkGray)
                                     .opacity(0.5)
 
-                                Image(uiImage: imagePicker.images[index])
+                                Image(uiImage: UIImage(data: data)!)
                                     .resizable()
                                     .scaledToFit()
                             }
-                            .cornerRadius(20.0)
-                            .frame(width: 150, height: 160)
-                            .padding(.vertical, 3)
+                            .cornerRadius(10.0)
+                            .frame(width: (UIScreen.main.bounds.width - 20) * 0.4, height: 160)
                         }
+                    }
+                    .padding(.vertical, 3)
+                }
+            }
+        } else {
+            VStack {
+                LazyVGrid(columns: columns, spacing: 5) {
+                    ForEach(0..<imagePicker.images.count, id: \.self) { index in
+                        ZStack {
+                            Color(.darkGray)
+                                .opacity(0.5)
+
+                            Image(uiImage: imagePicker.images[index])
+                                .resizable()
+                                .scaledToFit()
+                        }
+                        .cornerRadius(20.0)
+                        .frame(width: 150, height: 160)
+                        .padding(.vertical, 3)
                     }
                 }
             }
-        } header: {
-            Text("Photo")
         }
+    } header: {
+        Text("Photo")
     }
+}
 
     func switchViews() {
         if showingEditMode {

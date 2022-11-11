@@ -6,9 +6,9 @@
 //
 
 import CoreData
+import Collections
 import Foundation
 import SwiftUI
-import Collections
 
 typealias ScheduleGroup = OrderedDictionary<String, [Schedule]>
 
