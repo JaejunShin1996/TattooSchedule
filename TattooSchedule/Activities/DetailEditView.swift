@@ -267,11 +267,19 @@ struct DetailEditView: View {
             }
         }
 
+        NotificationManager.instance.cancelNotification(notificationId: editedSchedule.scheduleStringID)
+        NotificationManager.instance.scheduleNotification(
+            stringID: editedSchedule.scheduleStringID,
+            name: editedSchedule.scheduleName,
+            time: editedSchedule.scheduleDate.formatted(date: .omitted, time: .shortened)
+        )
+
         dataController.save()
     }
 
     func deleteSchedule() {
         dataController.delete(schedule)
+        NotificationManager.instance.cancelNotification(notificationId: schedule.scheduleStringID)
         dismiss()
     }
 }

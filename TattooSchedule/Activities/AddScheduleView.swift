@@ -141,6 +141,7 @@ struct AddScheduleView: View {
         }
 
         NotificationManager.instance.scheduleNotification(
+            stringID: newSchedule.scheduleStringID,
             name: newSchedule.scheduleName,
             time: newSchedule.scheduleDate.formatted(date: .omitted, time: .shortened)
         )

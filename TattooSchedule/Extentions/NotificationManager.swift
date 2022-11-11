@@ -11,6 +11,8 @@ import UserNotifications
 class NotificationManager {
     static let instance = NotificationManager()
 
+    var id: String = ""
+
     func requestPermission() {
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { _, error in
@@ -22,22 +24,31 @@ class NotificationManager {
         }
     }
 
-    func scheduleNotification(name: String, time: String) {
+    func scheduleNotification(stringID: String, name: String, time: String) {
+        self.id = stringID
         let content = UNMutableNotificationContent()
         content.title = "\(Date.now.formatted(date: .abbreviated, time: .omitted))"
         content.subtitle = "\(name) at \(time)"
         content.sound = .default
 
         var dateComponents = DateComponents()
-        dateComponents.hour = 21
-        dateComponents.minute = 12
+        dateComponents.hour = 9
+        dateComponents.minute = 0
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 
         let request = UNNotificationRequest(
-            identifier: UUID().uuidString,
+            identifier: stringID,
             content: content,
             trigger: trigger
         )
         UNUserNotificationCenter.current().add(request)
+    }
+
+    func cancelNotification(notificationId: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationId])
+    }
+
+    func removeDelivered() {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
 }

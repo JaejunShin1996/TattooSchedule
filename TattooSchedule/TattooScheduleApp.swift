@@ -19,6 +19,7 @@ struct TattooScheduleApp: App {
                 .environmentObject(dataController)
                 .onAppear {
                     NotificationManager.instance.requestPermission()
+                    NotificationManager.instance.removeDelivered()
                 }
         }
     }
