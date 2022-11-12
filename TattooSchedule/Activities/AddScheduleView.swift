@@ -48,7 +48,7 @@ struct AddScheduleView: View {
 
                 Section {
                     DatePicker("Date & Time", selection: $date)
-                        .datePickerStyle(.compact)
+                        .datePickerStyle(.graphical)
                         .onAppear {
                             UIDatePicker.appearance().minuteInterval = 30
                         }
@@ -143,7 +143,8 @@ struct AddScheduleView: View {
         NotificationManager.instance.scheduleNotification(
             stringID: newSchedule.scheduleStringID,
             name: newSchedule.scheduleName,
-            time: newSchedule.scheduleDate.formatted(date: .omitted, time: .shortened)
+            time: newSchedule.scheduleDate.formatted(date: .omitted, time: .shortened),
+            weekday: Calendar.current.component(.weekday, from: newSchedule.scheduleDate)
         )
 
         dataController.save()

@@ -11,7 +11,7 @@ extension Schedule {
     var scheduleStringID: String {
         (id?.uuidString)!
     }
-    
+
     var scheduleName: String {
         name ?? "John Doe"
     }

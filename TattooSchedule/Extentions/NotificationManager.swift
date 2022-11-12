@@ -24,7 +24,7 @@ class NotificationManager {
         }
     }
 
-    func scheduleNotification(stringID: String, name: String, time: String) {
+    func scheduleNotification(stringID: String, name: String, time: String, weekday: Int) {
         self.id = stringID
         let content = UNMutableNotificationContent()
         content.title = "\(Date.now.formatted(date: .abbreviated, time: .omitted))"
@@ -34,7 +34,9 @@ class NotificationManager {
         var dateComponents = DateComponents()
         dateComponents.hour = 9
         dateComponents.minute = 0
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        dateComponents.weekday = weekday
+        print(weekday)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
 
         let request = UNNotificationRequest(
             identifier: stringID,

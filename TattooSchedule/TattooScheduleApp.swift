@@ -20,6 +20,9 @@ struct TattooScheduleApp: App {
                 .onAppear {
                     NotificationManager.instance.requestPermission()
                     NotificationManager.instance.removeDelivered()
+                    #if DEBUG
+                    UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+                    #endif
                 }
         }
     }

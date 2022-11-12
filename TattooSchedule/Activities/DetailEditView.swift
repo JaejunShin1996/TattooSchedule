@@ -73,7 +73,7 @@ struct DetailEditView: View {
         Group {
             Section {
                 DatePicker("Date", selection: $date)
-                    .datePickerStyle(.compact)
+                    .datePickerStyle(.graphical)
                     .onAppear {
                         UIDatePicker.appearance().minuteInterval = 30
                     }
@@ -126,6 +126,7 @@ struct DetailEditView: View {
                 showingDeleteAlert = true
             } label: {
                 Label("Delete the schedule", systemImage: "trash")
+                    .foregroundColor(.red)
             }
         }
         .overlay(
@@ -271,7 +272,8 @@ struct DetailEditView: View {
         NotificationManager.instance.scheduleNotification(
             stringID: editedSchedule.scheduleStringID,
             name: editedSchedule.scheduleName,
-            time: editedSchedule.scheduleDate.formatted(date: .omitted, time: .shortened)
+            time: editedSchedule.scheduleDate.formatted(date: .omitted, time: .shortened),
+            weekday: Calendar.current.component(.weekday, from: editedSchedule.scheduleDate)
         )
 
         dataController.save()
