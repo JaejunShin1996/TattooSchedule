@@ -21,7 +21,7 @@ struct AddScheduleView: View {
     @State private var name = ""
     @State private var date = Date()
     @State private var design = ""
-    @State private var comment = ""
+    @State private var price = ""
 
     var body: some View {
         NavigationView {
@@ -39,8 +39,8 @@ struct AddScheduleView: View {
                         .focused($focusedField, equals: .design)
                         .submitLabel(.done)
 
-                    TextField("Any Comment?", text: $comment)
-                        .focused($focusedField, equals: .comment)
+                    TextField("Any Comment?", text: $price)
+                        .focused($focusedField, equals: .price)
                         .submitLabel(.done)
                 } header: {
                     Text("Detail & Comment")
@@ -74,7 +74,7 @@ struct AddScheduleView: View {
                     case .clientName:
                         focusedField = .design
                     case .design:
-                        focusedField = .comment
+                        focusedField = .price
                     default:
                         print("Creating account…")
                     }
@@ -128,7 +128,7 @@ struct AddScheduleView: View {
         newSchedule.name = name == "" ? "John Doe" : name
         newSchedule.date = date
         newSchedule.design = design == "" ? "No detail" : design
-        newSchedule.comment = comment == "" ? "No comment" : comment
+        newSchedule.price = price == "" ? "No comment" : price
         if !(imagePicker.images.isEmpty) {
             for image in imagePicker.images {
                 if let data = image.jpegData(compressionQuality: 1.0) {

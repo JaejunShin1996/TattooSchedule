@@ -55,7 +55,7 @@ class DataController: ObservableObject {
             let schedule = Schedule(context: viewContext)
             schedule.name = "Example"
             schedule.date = Date()
-            schedule.comment = "Example"
+            schedule.price = "100"
             schedule.design = "Example"
 
         }

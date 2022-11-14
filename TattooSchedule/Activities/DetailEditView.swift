@@ -24,8 +24,7 @@ struct DetailEditView: View {
     @State private var name: String
     @State private var date: Date
     @State private var design: String
-    @State private var comment: String
-    @State private var designPhoto: Data?
+    @State private var price: String
 
     @ObservedObject var viewModel: ViewModel
     @ObservedObject var schedule: Schedule
@@ -37,71 +36,11 @@ struct DetailEditView: View {
         _name = State(wrappedValue: schedule.scheduleName)
         _date = State(wrappedValue: schedule.scheduleDate)
         _design = State(wrappedValue: schedule.scheduleDesign)
-        _comment = State(wrappedValue: schedule.scheduleComment)
-        _designPhoto = State(wrappedValue: schedule.designPhoto)
+        _price = State(wrappedValue: schedule.schedulePrice)
     }
 
     @State private var showingEditMode = false
     @State private var showingDeleteAlert = false
-
-    var detailView: some View {
-        Group {
-            Section {
-                Text(schedule.scheduleDate, style: .date)
-                    .font(.title)
-                Text(schedule.scheduleDate, style: .time)
-                    .font(.title)
-            } header: {
-                Text("Time")
-            }
-
-            Section {
-                Text(schedule.scheduleDesign)
-                    .font(.title)
-
-                Text(schedule.scheduleComment)
-                    .font(.title)
-            } header: {
-                Text("Design & Comment")
-            }
-
-            photosInDetailView
-        }
-    }
-
-    var editView: some View {
-        Group {
-            Section {
-                DatePicker("Date", selection: $date)
-                    .datePickerStyle(.graphical)
-                    .onAppear {
-                        UIDatePicker.appearance().minuteInterval = 30
-                    }
-            }
-
-            Section {
-                TextField("Client Name", text: $name)
-                    .focused($focusedField, equals: .clientName)
-                    .submitLabel(.done)
-            } header: {
-                Text("Name")
-            }
-
-            Section {
-                TextField(design, text: $design)
-                    .focused($focusedField, equals: .design)
-                    .submitLabel(.done)
-
-                TextField(comment, text: $comment)
-                    .focused($focusedField, equals: .comment)
-                    .submitLabel(.done)
-            } header: {
-                Text("Design & Comment")
-            }
-
-            photosInEditView
-        }
-    }
 
     var body: some View {
         Form {
@@ -147,12 +86,71 @@ struct DetailEditView: View {
             case .clientName:
                 focusedField = .design
             case .design:
-                focusedField = .comment
+                focusedField = .price
             default:
                 print("Creating account…")
             }
         }
         .scrollDismissesKeyboard(.interactively)
+    }
+
+    var detailView: some View {
+        Group {
+            Section {
+                Text(schedule.scheduleDate, style: .date)
+                    .font(.title)
+                Text(schedule.scheduleDate, style: .time)
+                    .font(.title)
+            } header: {
+                Text("Time")
+            }
+
+            Section {
+                Text(schedule.scheduleDesign)
+                    .font(.title)
+
+                Text(schedule.schedulePrice)
+                    .font(.title)
+            } header: {
+                Text("Design & Comment")
+            }
+
+            photosInDetailView
+        }
+    }
+
+    var editView: some View {
+        Group {
+            Section {
+                DatePicker("Date", selection: $date)
+                    .datePickerStyle(.graphical)
+                    .onAppear {
+                        UIDatePicker.appearance().minuteInterval = 30
+                    }
+            }
+
+            Section {
+                TextField("Client Name", text: $name)
+                    .focused($focusedField, equals: .clientName)
+                    .submitLabel(.done)
+            } header: {
+                Text("Name")
+            }
+
+            Section {
+                TextField(design, text: $design)
+                    .focused($focusedField, equals: .design)
+                    .submitLabel(.done)
+
+                TextField(price, text: $price)
+                    .focused($focusedField, equals: .price)
+                    .submitLabel(.done)
+            } header: {
+                Text("Design & Comment")
+            }
+
+            photosInEditView
+        }
     }
 
     var photosInDetailView: some View {
@@ -182,6 +180,7 @@ struct DetailEditView: View {
             Text("Photo")
         }
     }
+
     var photosInEditView: some View {
     Section {
         PhotosPicker(
@@ -220,12 +219,12 @@ struct DetailEditView: View {
         } else {
             VStack {
                 LazyVGrid(columns: columns, spacing: 5) {
-                    ForEach(0..<imagePicker.images.count, id: \.self) { index in
+                    ForEach(imagePicker.images, id: \.self) { photo in
                         ZStack {
                             Color(.darkGray)
                                 .opacity(0.5)
 
-                            Image(uiImage: imagePicker.images[index])
+                            Image(uiImage: photo)
                                 .resizable()
                                 .scaledToFit()
                         }
@@ -254,7 +253,7 @@ struct DetailEditView: View {
         editedSchedule.name = name
         editedSchedule.date = date
         editedSchedule.design = design
-        editedSchedule.comment = comment
+        editedSchedule.price = price
 
         if !(imagePicker.images.isEmpty) {
             editedSchedule.photos = []

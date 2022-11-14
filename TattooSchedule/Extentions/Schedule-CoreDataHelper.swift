@@ -24,8 +24,8 @@ extension Schedule {
         design ?? "Nothing"
     }
 
-    var scheduleComment: String {
-        comment ?? "Nothing"
+    var schedulePrice: String {
+        price ?? "100"
     }
 
     var schedulePhotos: [Photo] {
@@ -41,10 +41,10 @@ extension Schedule {
         let viewContext = controller.container.viewContext
 
         let schedule = Schedule(context: viewContext)
-        schedule.name = "Example Name"
+        schedule.name = "Jaejun Shin"
         schedule.date = Date()
-        schedule.comment = "Example Comment"
-        schedule.design = "Example Design"
+        schedule.design = "Neo traditional"
+        schedule.price = "100"
 
         return schedule
     }

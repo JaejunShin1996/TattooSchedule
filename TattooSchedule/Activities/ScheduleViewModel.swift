@@ -89,6 +89,8 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 
             if (scheduleDate <= yesterday) || Calendar.current.isDateInYesterday(scheduleDate) {
                 pastSchedules.append(schedule)
+
+                NotificationManager.instance.cancelNotification(notificationId: schedule.scheduleStringID)
             }
         }
 

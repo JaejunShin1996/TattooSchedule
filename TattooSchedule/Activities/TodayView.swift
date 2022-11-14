@@ -25,7 +25,7 @@ struct TodaySectionView: View {
                     List {
                         ForEach(viewModel.todaySchedules()) { schedule in
                             NavigationLink {
-                                DetailEditView(viewModel: viewModel, schedule: schedule)
+                                DetailView(viewModel: viewModel, schedule: schedule)
                             } label: {
                                 VStack(alignment: .leading) {
                                     Text(schedule.scheduleName)

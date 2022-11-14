@@ -10,5 +10,5 @@ import Foundation
 enum Field {
     case clientName
     case design
-    case comment
+    case price
 }

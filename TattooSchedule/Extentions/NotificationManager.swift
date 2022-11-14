@@ -27,8 +27,8 @@ class NotificationManager {
     func scheduleNotification(stringID: String, name: String, time: String, weekday: Int) {
         self.id = stringID
         let content = UNMutableNotificationContent()
-        content.title = "\(Date.now.formatted(date: .abbreviated, time: .omitted))"
-        content.subtitle = "\(name) at \(time)"
+        content.title = "\(name) at \(time)"
+        content.subtitle = "\(Date.now.formatted(date: .abbreviated, time: .omitted))"
         content.sound = .default
 
         var dateComponents = DateComponents()
