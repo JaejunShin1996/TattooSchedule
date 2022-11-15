@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5201901A28E5765C00F79E43 /* ImagePicker.swift */; };
+		5204353429238EEC0037F53A /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204353329238EEC0037F53A /* ScheduleListView.swift */; };
+		5204353629239E420037F53A /* NameAndDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204353529239E420037F53A /* NameAndDetailView.swift */; };
+		5204353829239E7C0037F53A /* GridPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204353729239E7C0037F53A /* GridPhotoView.swift */; };
+		5204353A29239EA50037F53A /* DateAndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204353929239EA50037F53A /* DateAndTimeView.swift */; };
 		520B6F4E291A411D005DAC90 /* LongPressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B6F4D291A411D005DAC90 /* LongPressButton.swift */; };
 		520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */; };
 		5210763B2900EC17002A1253 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */; };
@@ -16,12 +20,8 @@
 		522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */; };
 		52338ABE291F8956009C8632 /* SlideToUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52338ABD291F8956009C8632 /* SlideToUnlockView.swift */; };
 		5252CB4729039B5200FC9896 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 5252CB4629039B5200FC9896 /* Collections */; };
-		5252CB492903A02700FC9896 /* SortedPastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252CB482903A02700FC9896 /* SortedPastView.swift */; };
 		5276A158291F3FAE001B702A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A157291F3FAE001B702A /* DetailView.swift */; };
 		527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A94DF28EE9A9700533E97 /* Assets.xcassets */; };
-		5295A6D328FE6C6700251FEB /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D228FE6C6700251FEB /* TodayView.swift */; };
-		5295A6D528FE6C7500251FEB /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D428FE6C7500251FEB /* UpcomingView.swift */; };
-		5295A6D728FE6C7B00251FEB /* PastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D628FE6C7B00251FEB /* PastView.swift */; };
 		5295A6D928FE76FE00251FEB /* Photo-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */; };
 		52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */; };
 		52E3C706291E59C600A0EE95 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3C705291E59C600A0EE95 /* NotificationManager.swift */; };
@@ -30,12 +30,15 @@
 		52E9C47828584EA200E88AEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E9C47728584EA200E88AEE /* Preview Assets.xcassets */; };
 		52E9C48228584F7600E88AEE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C48128584F7600E88AEE /* DataController.swift */; };
 		52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4832858518D00E88AEE /* AddScheduleView.swift */; };
-		52E9C4862858540F00E88AEE /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C4852858540F00E88AEE /* DetailEditView.swift */; };
 		52FE5C17291CDE24009B791A /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 52FE5C16291CDE24009B791A /* ImageViewer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5201901A28E5765C00F79E43 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		5204353329238EEC0037F53A /* ScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListView.swift; sourceTree = "<group>"; };
+		5204353529239E420037F53A /* NameAndDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameAndDetailView.swift; sourceTree = "<group>"; };
+		5204353729239E7C0037F53A /* GridPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPhotoView.swift; sourceTree = "<group>"; };
+		5204353929239EA50037F53A /* DateAndTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndTimeView.swift; sourceTree = "<group>"; };
 		520B6F4D291A411D005DAC90 /* LongPressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressButton.swift; sourceTree = "<group>"; };
 		520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule-CoreDataHelper.swift"; sourceTree = "<group>"; };
 		5210763C2900F63D002A1253 /* KeyDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDismissExtension.swift; sourceTree = "<group>"; };
@@ -44,12 +47,8 @@
 		52338ABD291F8956009C8632 /* SlideToUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockView.swift; sourceTree = "<group>"; };
 		5234532528E1616D00C89FEC /* TattooSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TattooSchedule.entitlements; sourceTree = "<group>"; };
 		5234532628E161B800C89FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5252CB482903A02700FC9896 /* SortedPastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedPastView.swift; sourceTree = "<group>"; };
 		5276A157291F3FAE001B702A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		527A94DF28EE9A9700533E97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5295A6D228FE6C6700251FEB /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
-		5295A6D428FE6C7500251FEB /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
-		5295A6D628FE6C7B00251FEB /* PastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastView.swift; sourceTree = "<group>"; };
 		5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo-CoreDataHelper.swift"; sourceTree = "<group>"; };
 		52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSearchView.swift; sourceTree = "<group>"; };
 		52E3C705291E59C600A0EE95 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -60,7 +59,6 @@
 		52E9C47F28584EE000E88AEE /* Schedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Schedule.xcdatamodel; sourceTree = "<group>"; };
 		52E9C48128584F7600E88AEE /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		52E9C4832858518D00E88AEE /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
-		52E9C4852858540F00E88AEE /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,9 @@
 			children = (
 				520B6F4D291A411D005DAC90 /* LongPressButton.swift */,
 				52338ABD291F8956009C8632 /* SlideToUnlockView.swift */,
-				5276A157291F3FAE001B702A /* DetailView.swift */,
+				5204353529239E420037F53A /* NameAndDetailView.swift */,
+				5204353729239E7C0037F53A /* GridPhotoView.swift */,
+				5204353929239EA50037F53A /* DateAndTimeView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -89,14 +89,11 @@
 		520EA4E328E179F800132381 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				52E9C47228584EA100E88AEE /* ScheduleView.swift */,
 				5215A02028EBD2A000306643 /* ScheduleViewModel.swift */,
-				5295A6D228FE6C6700251FEB /* TodayView.swift */,
-				5295A6D428FE6C7500251FEB /* UpcomingView.swift */,
-				5295A6D628FE6C7B00251FEB /* PastView.swift */,
-				5252CB482903A02700FC9896 /* SortedPastView.swift */,
+				52E9C47228584EA100E88AEE /* ScheduleView.swift */,
+				5204353329238EEC0037F53A /* ScheduleListView.swift */,
 				52E9C4832858518D00E88AEE /* AddScheduleView.swift */,
-				52E9C4852858540F00E88AEE /* DetailEditView.swift */,
+				5276A157291F3FAE001B702A /* DetailView.swift */,
 				52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */,
 			);
 			path = Activities;
@@ -275,23 +272,22 @@
 			files = (
 				52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */,
 				52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */,
-				52E9C4862858540F00E88AEE /* DetailEditView.swift in Sources */,
+				5204353A29239EA50037F53A /* DateAndTimeView.swift in Sources */,
 				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
 				5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */,
 				522BCFA128ED02A00076EC67 /* TextFieldFocus.swift in Sources */,
 				5210763D2900F63D002A1253 /* KeyDismissExtension.swift in Sources */,
 				52338ABE291F8956009C8632 /* SlideToUnlockView.swift in Sources */,
-				5295A6D528FE6C7500251FEB /* UpcomingView.swift in Sources */,
+				5204353829239E7C0037F53A /* GridPhotoView.swift in Sources */,
 				5215A02128EBD2A000306643 /* ScheduleViewModel.swift in Sources */,
 				52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */,
 				5210763B2900EC17002A1253 /* Main.xcdatamodeld in Sources */,
 				5295A6D928FE76FE00251FEB /* Photo-CoreDataHelper.swift in Sources */,
 				520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */,
 				5276A158291F3FAE001B702A /* DetailView.swift in Sources */,
-				5295A6D328FE6C6700251FEB /* TodayView.swift in Sources */,
-				5252CB492903A02700FC9896 /* SortedPastView.swift in Sources */,
 				52E3C706291E59C600A0EE95 /* NotificationManager.swift in Sources */,
-				5295A6D728FE6C7B00251FEB /* PastView.swift in Sources */,
+				5204353629239E420037F53A /* NameAndDetailView.swift in Sources */,
+				5204353429238EEC0037F53A /* ScheduleListView.swift in Sources */,
 				52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */,
 				520B6F4E291A411D005DAC90 /* LongPressButton.swift in Sources */,
 			);

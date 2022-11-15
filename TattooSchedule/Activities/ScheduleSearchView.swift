@@ -12,13 +12,7 @@ struct ScheduleSearchView: View {
 
     @State private var searchText = ""
 
-    @StateObject var viewModel: ViewModel
-
-    init(dataController: DataController) {
-        let viewModel = ViewModel(dataController: dataController)
-
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
+    @ObservedObject var viewModel: ViewModel
 
     var searchResults: [Schedule] {
         if searchText.isEmpty {
@@ -43,7 +37,7 @@ struct ScheduleSearchView: View {
                 } else {
                     List {
                         ForEach(searchResults, id: \.self) { schedule in
-                            NavigationLink(destination: DetailEditView(viewModel: viewModel, schedule: schedule)) {
+                            NavigationLink(destination: DetailView(viewModel: viewModel, schedule: schedule)) {
                                 VStack(alignment: .leading) {
                                     Text(schedule.scheduleName)
 
@@ -63,6 +57,6 @@ struct ScheduleSearchView: View {
 
 struct ScheduleSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleSearchView(dataController: DataController.preview)
+        ScheduleSearchView(viewModel: ViewModel(dataController: DataController.preview))
     }
 }

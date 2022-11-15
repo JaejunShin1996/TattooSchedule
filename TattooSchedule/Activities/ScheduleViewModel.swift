@@ -48,7 +48,7 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         }
     }
 
-    // Divide Sections for the main view
+    // schedules for each views.
     func todaySchedules() -> [Schedule] {
         var todaySchedules = [Schedule]()
 

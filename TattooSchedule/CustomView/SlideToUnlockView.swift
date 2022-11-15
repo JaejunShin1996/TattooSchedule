@@ -40,6 +40,8 @@ struct DraggingComponent: View {
     private let minWidth = CGFloat(50)
     @State private var width = CGFloat(50)
 
+    var saveAction: () = ()
+
     var body: some View {
         RoundedRectangle(cornerRadius: 16)
             .fill(isLocked ? Color.blue.opacity(0.4) : Color.green.opacity(0.4))
@@ -103,6 +105,7 @@ struct DraggingComponent: View {
 }
 
 struct SlideToUnlockView_Previews: PreviewProvider {
+    static let exampleAction = {}
 
     static var previews: some View {
         SlideToUnlockView(isLocked: .constant(true))

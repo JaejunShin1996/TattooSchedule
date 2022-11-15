@@ -24,26 +24,38 @@ struct ScheduleView: View {
 
     var body: some View {
         TabView(selection: $selectedView) {
-            TodaySectionView(viewModel: viewModel, dataController: dataController)
-                .tag(TodaySectionView.tag)
-                .tabItem {
-                    Image(systemName: "clock")
-                    Text("Today")
-                }
+            ScheduleListView(
+                navigationTitle: "Today",
+                viewModel: viewModel,
+                dataController: dataController
+            )
+            .tag(ScheduleListView.todayTag)
+            .tabItem {
+                Image(systemName: "clock")
+                Text("Today")
+            }
 
-            UpcomingSectionView(viewModel: viewModel, dataController: dataController)
-                .tag(UpcomingSectionView.tag)
-                .tabItem {
-                    Image(systemName: "hourglass")
-                    Text("Upcoming")
-                }
+            ScheduleListView(
+                navigationTitle: "Upcoming",
+                viewModel: viewModel,
+                dataController: dataController
+            )
+            .tag(ScheduleListView.UpcomingTag)
+            .tabItem {
+                Image(systemName: "hourglass")
+                Text("Upcoming")
+            }
 
-            PastSectionView(viewModel: viewModel, dataController: dataController)
-                .tag(PastSectionView.tag)
-                .tabItem {
-                    Image(systemName: "clock.arrow.circlepath")
-                    Text("Past")
-                }
+            ScheduleListView(
+                navigationTitle: "Past",
+                viewModel: viewModel,
+                dataController: dataController
+            )
+            .tag(ScheduleListView.pastTag)
+            .tabItem {
+                Image(systemName: "clock.arrow.circlepath")
+                Text("Past")
+            }
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .inactive {

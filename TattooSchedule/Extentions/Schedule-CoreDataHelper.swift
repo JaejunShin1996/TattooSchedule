@@ -9,7 +9,7 @@ import Foundation
 
 extension Schedule {
     var scheduleStringID: String {
-        (id?.uuidString)!
+        id?.uuidString ?? UUID().uuidString
     }
 
     var scheduleName: String {

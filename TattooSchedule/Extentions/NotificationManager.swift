@@ -11,7 +11,7 @@ import UserNotifications
 class NotificationManager {
     static let instance = NotificationManager()
 
-    var id: String = ""
+    var id: String = UUID().uuidString
 
     func requestPermission() {
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]

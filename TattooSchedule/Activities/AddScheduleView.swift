@@ -5,16 +5,20 @@
 //  Created by Jaejun Shin on 14/6/2022.
 //
 
+import ImageViewer
 import SwiftUI
 import PhotosUI
 
 struct AddScheduleView: View {
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var dataController: DataController
+
     @FocusState private var focusedField: Field?
 
-    @EnvironmentObject var dataController: DataController
-    @Environment(\.dismiss) var dismiss
-
     @StateObject var imagePicker = ImagePicker()
+    @State private var selectedPhoto = Image(systemName: "flame.fill")
+    @State private var showingImageViewer = false
 
     let columns = [GridItem(.adaptive(minimum: 100))]
 
@@ -25,100 +29,79 @@ struct AddScheduleView: View {
 
     var body: some View {
         NavigationView {
-            Form {
-                Section {
-                    TextField("Client Name", text: $name)
-                        .focused($focusedField, equals: .clientName)
-                        .submitLabel(.done)
-                } header: {
-                    Text("Name")
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .center) {
+                    NameAndDetailView(name: $name, detail: $design, price: $price)
+
+                    photoSelectionBlock
+
+                    DateAndTimeView(colorScheme: colorScheme, date: $date)
                 }
-
-                Section {
-                    TextField("Design", text: $design)
-                        .focused($focusedField, equals: .design)
-                        .submitLabel(.done)
-
-                    TextField("Any Comment?", text: $price)
-                        .focused($focusedField, equals: .price)
-                        .submitLabel(.done)
-                } header: {
-                    Text("Detail & Comment")
-                }
-
-                Section {
-                    DatePicker("Date & Time", selection: $date)
-                        .datePickerStyle(.graphical)
-                        .onAppear {
-                            UIDatePicker.appearance().minuteInterval = 30
-                        }
-                } header: {
-                    Text("Date")
-                }
-
-                photosInAddingView
+                .padding(.horizontal)
             }
-            .navigationTitle("Add New Schedule")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            addNewSchedule()
-                            dismiss()
-                        } label: {
-                            Text("Save")
-                        }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        addNewSchedule()
+                    } label: {
+                        Text("Save")
                     }
                 }
-                .onSubmit {
-                    switch focusedField {
-                    case .clientName:
-                        focusedField = .design
-                    case .design:
-                        focusedField = .price
-                    default:
-                        print("Creating account…")
-                    }
-                }
-                .scrollDismissesKeyboard(.immediately)
+            }
+            .overlay(
+                ImageViewer(
+                    image: $selectedPhoto,
+                    viewerShown: $showingImageViewer,
+                    closeButtonTopRight: true
+                )
+            )
         }
     }
 
-    var photosInAddingView: some View {
-        Section {
-            PhotosPicker(
-                selection: $imagePicker.imageSelections,
-                maxSelectionCount: 10,
-                matching: .images,
-                preferredItemEncoding: .automatic,
-                photoLibrary: .shared()
-            ) {
-                HStack(alignment: .center) {
-                    Text("Photos")
+    var photoSelectionBlock: some View {
+        VStack {
+            HStack {
+                Text("Photo")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                PhotosPicker(
+                    selection: $imagePicker.imageSelections,
+                    maxSelectionCount: 10,
+                    matching: .images,
+                    preferredItemEncoding: .automatic,
+                    photoLibrary: .shared()
+                ) {
                     Image(systemName: "photo.stack")
+                        .font(.title)
+                        .foregroundColor(.blue)
                 }
             }
 
-            if !imagePicker.images.isEmpty {
-                VStack {
-                    LazyVGrid(columns: columns, spacing: 5) {
-                        ForEach(0..<imagePicker.images.count, id: \.self) { index in
-                            ZStack {
-                                Color(.darkGray)
-                                    .opacity(0.5)
-
-                                Image(uiImage: imagePicker.images[index])
+            if imagePicker.images.isEmpty {
+                Text("No photos selected.")
+                    .italic()
+            } else {
+                LazyVGrid(columns: columns, alignment: .center) {
+                    ForEach(imagePicker.images, id: \.self) { photo in
+                        RoundedRectangle(cornerRadius: 15.0)
+                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 160)
+                            .overlay {
+                                Image(uiImage: photo)
                                     .resizable()
-                                    .scaledToFit()
+                                    .scaledToFill()
+                                    .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 160)
+                                    .cornerRadius(15.0)
+                                    .allowsHitTesting(false)
                             }
-                            .cornerRadius(10.0)
-                            .frame(width: (UIScreen.main.bounds.width - 20) * 0.4, height: 160)
-                            .padding(.vertical, 3)
+                            .onTapGesture {
+                                selectedPhoto = Image(uiImage: photo)
+                                showingImageViewer.toggle()
                         }
                     }
                 }
             }
-        } header: {
-            Text("Photo")
         }
     }
 
@@ -128,7 +111,7 @@ struct AddScheduleView: View {
         newSchedule.name = name == "" ? "John Doe" : name
         newSchedule.date = date
         newSchedule.design = design == "" ? "No detail" : design
-        newSchedule.price = price == "" ? "No comment" : price
+        newSchedule.price = price == "" ? "0" : price
         if !(imagePicker.images.isEmpty) {
             for image in imagePicker.images {
                 if let data = image.jpegData(compressionQuality: 1.0) {
