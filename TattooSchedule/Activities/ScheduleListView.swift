@@ -36,10 +36,12 @@ struct ScheduleListView: View {
                 if schedulesForEachView.isEmpty {
                     Text("No schedules.")
                 } else {
-                    if navigationTitle != "Past" {
-                        todayAndUpcomingList
+                    if navigationTitle == "Today" {
+                        todayList
+                    } else if navigationTitle == "Upcoming" {
+                        upcomingList
                     } else {
-                        sortedPastList
+                        pastList
                     }
                 }
             }
@@ -70,7 +72,7 @@ struct ScheduleListView: View {
         }
     }
 
-    var todayAndUpcomingList: some View {
+    var todayList: some View {
         List {
             ForEach(schedulesForEachView) { schedule in
                 NavigationLink {
@@ -105,9 +107,51 @@ struct ScheduleListView: View {
         }
     }
 
-    var sortedPastList: some View {
+    var upcomingList: some View {
         List {
-            ForEach(Array(viewModel.groupSchedulesByMonth()), id: \.key) { month, schedules in
+            ForEach(Array(viewModel.groupUpcomingSchedulesByWeeks()), id: \.key) { week, schedules in
+                Section {
+                    ForEach(schedules) { schedule in
+                        NavigationLink {
+                            DetailView(viewModel: viewModel, schedule: schedule)
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(schedule.scheduleName)
+                                        .font(.title)
+                                        .bold()
+
+                                    HStack {
+                                        Text(schedule.scheduleDate.formatted(date: .omitted, time: .shortened))
+                                            .font(.title)
+                                        Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .omitted))
+                                    }
+                                }
+
+                                Spacer()
+
+                                Text("A$ \(schedule.schedulePrice)")
+                            }
+                        }
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                dataController.delete(schedule)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                    }
+                } header: {
+                    Text(week)
+                        .foregroundColor(.primary)
+                }
+            }
+        }
+    }
+
+    var pastList: some View {
+        List {
+            ForEach(Array(viewModel.groupPastSchedulesByMonth()), id: \.key) { month, schedules in
                 Section {
                     ForEach(schedules) { schedule in
                         NavigationLink {

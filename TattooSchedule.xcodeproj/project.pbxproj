@@ -12,6 +12,7 @@
 		5204353629239E420037F53A /* NameAndDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204353529239E420037F53A /* NameAndDetailView.swift */; };
 		5204353829239E7C0037F53A /* GridPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204353729239E7C0037F53A /* GridPhotoView.swift */; };
 		5204353A29239EA50037F53A /* DateAndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204353929239EA50037F53A /* DateAndTimeView.swift */; };
+		5204353C292493280037F53A /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204353B292493280037F53A /* DateExtension.swift */; };
 		520B6F4E291A411D005DAC90 /* LongPressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B6F4D291A411D005DAC90 /* LongPressButton.swift */; };
 		520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */; };
 		5210763B2900EC17002A1253 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47E28584EE000E88AEE /* Main.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 		5204353529239E420037F53A /* NameAndDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameAndDetailView.swift; sourceTree = "<group>"; };
 		5204353729239E7C0037F53A /* GridPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPhotoView.swift; sourceTree = "<group>"; };
 		5204353929239EA50037F53A /* DateAndTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndTimeView.swift; sourceTree = "<group>"; };
+		5204353B292493280037F53A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		520B6F4D291A411D005DAC90 /* LongPressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressButton.swift; sourceTree = "<group>"; };
 		520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule-CoreDataHelper.swift"; sourceTree = "<group>"; };
 		5210763C2900F63D002A1253 /* KeyDismissExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDismissExtension.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				520EA4E628E17BA400132381 /* Schedule-CoreDataHelper.swift */,
 				5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */,
+				5204353B292493280037F53A /* DateExtension.swift */,
 				522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */,
 				5210763C2900F63D002A1253 /* KeyDismissExtension.swift */,
 				52E3C705291E59C600A0EE95 /* NotificationManager.swift */,
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E9C47328584EA100E88AEE /* ScheduleView.swift in Sources */,
+				5204353C292493280037F53A /* DateExtension.swift in Sources */,
 				52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */,
 				5204353A29239EA50037F53A /* DateAndTimeView.swift in Sources */,
 				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
@@ -415,7 +419,7 @@
 		52E9C47C28584EA200E88AEE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = TattooSchedule/TattooSchedule.entitlements;
@@ -453,7 +457,7 @@
 		52E9C47D28584EA200E88AEE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = TattooSchedule/TattooSchedule.entitlements;

@@ -52,12 +52,12 @@ struct GridPhotoView: View {
                             if let uiImage = UIImage(data: data) {
                                 RoundedRectangle(cornerRadius: 15.0)
                                     .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15,
-                                           height: 160)
+                                           height: 150)
                                     .overlay {
                                         Image(uiImage: uiImage)
                                             .resizable()
                                             .scaledToFill()
-                                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 160)
+                                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
                                             .cornerRadius(15.0)
                                             .allowsHitTesting(false)
                                     }
@@ -73,12 +73,12 @@ struct GridPhotoView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(imagePicker.images, id: \.self) { photo in
                         RoundedRectangle(cornerRadius: 15.0)
-                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 160)
+                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
                             .overlay {
                                 Image(uiImage: photo)
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 160)
+                                    .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
                                     .cornerRadius(15.0)
                                     .allowsHitTesting(false)
                             }

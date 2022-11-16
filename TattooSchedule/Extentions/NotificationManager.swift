@@ -33,7 +33,7 @@ class NotificationManager {
 
         var dateComponents = DateComponents()
         dateComponents.hour = 9
-        dateComponents.minute = 0
+        dateComponents.minute = 00
         dateComponents.weekday = weekday
         print(weekday)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)

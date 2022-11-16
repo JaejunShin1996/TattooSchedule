@@ -36,6 +36,14 @@ extension Schedule {
         scheduleDate.formatted(.dateTime.year().month(.wide))
     }
 
+    var week: String {
+        if scheduleDate.isInThisWeek {
+            return "This week"
+        } else {
+            return "Next weeks"
+        }
+    }
+
     static var example: Schedule {
         let controller = DataController.preview
         let viewContext = controller.container.viewContext

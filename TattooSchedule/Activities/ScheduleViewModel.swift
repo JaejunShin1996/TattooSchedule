@@ -114,10 +114,18 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
     }
 
     // Groups schedules by month.
-    func groupSchedulesByMonth() -> ScheduleGroup {
+    func groupPastSchedulesByMonth() -> ScheduleGroup {
         guard !schedules.isEmpty else { return [:] }
 
         let groupedSchedules = ScheduleGroup(grouping: pastSchedules()) { $0.month }
+
+        return groupedSchedules
+    }
+
+    func groupUpcomingSchedulesByWeeks() -> ScheduleGroup {
+        guard !schedules.isEmpty else { return [:] }
+
+        let groupedSchedules = ScheduleGroup(grouping: upcomingSchedules()) { $0.week }
 
         return groupedSchedules
     }
