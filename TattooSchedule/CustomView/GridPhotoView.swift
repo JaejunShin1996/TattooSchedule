@@ -43,8 +43,15 @@ struct GridPhotoView: View {
             }
 
             if photos.isEmpty && imagePicker.images.isEmpty {
-                Text("No photos selected.")
-                    .italic()
+                ZStack {
+                    Text("No photos selected.")
+                            .italic()
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
+                .background(.gray.opacity(0.3))
+                .cornerRadius(20)
+                .shadow(radius: 20)
             } else if imagePicker.images.isEmpty {
                 LazyVGrid(columns: columns) {
                     ForEach(photos) { photo in
@@ -52,12 +59,12 @@ struct GridPhotoView: View {
                             if let uiImage = UIImage(data: data) {
                                 RoundedRectangle(cornerRadius: 15.0)
                                     .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15,
-                                           height: 150)
+                                           height: 140)
                                     .overlay {
                                         Image(uiImage: uiImage)
                                             .resizable()
                                             .scaledToFill()
-                                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
+                                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 140)
                                             .cornerRadius(15.0)
                                             .allowsHitTesting(false)
                                     }
@@ -73,12 +80,12 @@ struct GridPhotoView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(imagePicker.images, id: \.self) { photo in
                         RoundedRectangle(cornerRadius: 15.0)
-                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
+                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 140)
                             .overlay {
                                 Image(uiImage: photo)
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
+                                    .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 140)
                                     .cornerRadius(15.0)
                                     .allowsHitTesting(false)
                             }

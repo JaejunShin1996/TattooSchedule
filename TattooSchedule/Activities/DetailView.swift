@@ -34,7 +34,7 @@ struct DetailView: View {
         _photos = State(wrappedValue: viewModel.sortedImages(schedule))
     }
 
-    @ObservedObject var imagePicker = ImagePicker()
+    @StateObject var imagePicker = ImagePicker()
     @State private var selectedPhoto = Image(systemName: "flame.fill")
     @State private var showingImageViewer = false
 
@@ -67,13 +67,6 @@ struct DetailView: View {
             }
             .padding(.horizontal)
         }
-        .onChange(of: detailmode) { _ in
-            editting.toggle()
-            if !editting {
-                saveEditedSchedule(schedule)
-                photos = viewModel.sortedImages(schedule)
-            }
-        }
         .navigationTitle(name)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -83,6 +76,13 @@ struct DetailView: View {
                     Image(systemName: "trash")
                         .foregroundColor(.red)
                 }
+            }
+        }
+        .onChange(of: detailmode) { _ in
+            editting.toggle()
+            if !editting {
+                saveEditedSchedule(schedule)
+                photos = viewModel.sortedImages(schedule)
             }
         }
         .overlay(
