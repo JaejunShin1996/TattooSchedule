@@ -80,25 +80,19 @@ struct AddScheduleView: View {
             }
 
             if imagePicker.images.isEmpty {
-                Text("Choose photos up to 10.")
-                    .italic()
+                ZStack {
+                    Text("Up to 10 photos.")
+                }
+                .defaultEmptyImageViewModifier()
+
             } else {
                 LazyVGrid(columns: columns) {
                     ForEach(imagePicker.images, id: \.self) { photo in
-                        RoundedRectangle(cornerRadius: 15.0)
-                            .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
-                            .overlay {
-                                Image(uiImage: photo)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
-                                    .cornerRadius(15.0)
-                                    .allowsHitTesting(false)
-                            }
+                        PreviewableGridImageView(image: photo)
                             .onTapGesture {
                                 selectedPhoto = Image(uiImage: photo)
                                 showingImageViewer.toggle()
-                        }
+                            }
                     }
                 }
             }

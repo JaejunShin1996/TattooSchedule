@@ -24,6 +24,8 @@
 		5276A158291F3FAE001B702A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276A157291F3FAE001B702A /* DetailView.swift */; };
 		527A94E628EE9DDA00533E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A94DF28EE9A9700533E97 /* Assets.xcassets */; };
 		5295A6D928FE76FE00251FEB /* Photo-CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */; };
+		52970978292F5C0200491952 /* EmptyImageTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52970977292F5C0200491952 /* EmptyImageTextViewModifier.swift */; };
+		5297097A292F5C4900491952 /* PreviewableGridImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52970979292F5C4900491952 /* PreviewableGridImageView.swift */; };
 		52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */; };
 		52E3C706291E59C600A0EE95 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3C705291E59C600A0EE95 /* NotificationManager.swift */; };
 		52E9C47128584EA100E88AEE /* TattooScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9C47028584EA100E88AEE /* TattooScheduleApp.swift */; };
@@ -52,6 +54,8 @@
 		5276A157291F3FAE001B702A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		527A94DF28EE9A9700533E97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5295A6D828FE76FE00251FEB /* Photo-CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo-CoreDataHelper.swift"; sourceTree = "<group>"; };
+		52970977292F5C0200491952 /* EmptyImageTextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImageTextViewModifier.swift; sourceTree = "<group>"; };
+		52970979292F5C4900491952 /* PreviewableGridImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewableGridImageView.swift; sourceTree = "<group>"; };
 		52CBFE5728F5292A0001E7D9 /* ScheduleSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSearchView.swift; sourceTree = "<group>"; };
 		52E3C705291E59C600A0EE95 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		52E9C46D28584EA100E88AEE /* TattooSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TattooSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +123,8 @@
 				522BCFA028ED02A00076EC67 /* TextFieldFocus.swift */,
 				5210763C2900F63D002A1253 /* KeyDismissExtension.swift */,
 				52E3C705291E59C600A0EE95 /* NotificationManager.swift */,
+				52970977292F5C0200491952 /* EmptyImageTextViewModifier.swift */,
+				52970979292F5C4900491952 /* PreviewableGridImageView.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -287,8 +293,10 @@
 				52E9C4842858518D00E88AEE /* AddScheduleView.swift in Sources */,
 				5210763B2900EC17002A1253 /* Main.xcdatamodeld in Sources */,
 				5295A6D928FE76FE00251FEB /* Photo-CoreDataHelper.swift in Sources */,
+				52970978292F5C0200491952 /* EmptyImageTextViewModifier.swift in Sources */,
 				520EA4E728E17BA400132381 /* Schedule-CoreDataHelper.swift in Sources */,
 				5276A158291F3FAE001B702A /* DetailView.swift in Sources */,
+				5297097A292F5C4900491952 /* PreviewableGridImageView.swift in Sources */,
 				52E3C706291E59C600A0EE95 /* NotificationManager.swift in Sources */,
 				5204353629239E420037F53A /* NameAndDetailView.swift in Sources */,
 				5204353429238EEC0037F53A /* ScheduleListView.swift in Sources */,
