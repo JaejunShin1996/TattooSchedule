@@ -28,34 +28,33 @@ struct NameAndDetailView: View {
 
                 Divider()
 
-                TextField("Detail and Comment", text: $detail)
-                    .focused($focusedField, equals: .design)
-                    .submitLabel(.done)
-                    .font(.headline)
-
-                Divider()
-
                 HStack {
                     Text("A$")
-                        .font(.title)
-                        .bold()
+                        .font(.headline)
 
                     TextField("Price", text: $price)
                         .focused($focusedField, equals: .price)
                         .keyboardType(.numberPad)
                         .submitLabel(.done)
-                        .font(.title)
-                        .bold()
-                        .toolbar {
-                            ToolbarItemGroup(placement: .keyboard) {
-                                Spacer()
+                        .font(.headline)
+                }
 
-                                Button("Done") {
-                                    focusedField = .none
-                                }
+                Divider()
+
+                TextField("Any comment", text: $detail, axis: .vertical)
+                    .lineLimit(3, reservesSpace: true)
+                    .focused($focusedField, equals: .design)
+                    .submitLabel(.next)
+                    .font(.headline)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+
+                            Button("Done") {
+                                focusedField = .none
                             }
                         }
-                }
+                    }
             }
             .padding()
             .background(.gray.opacity(0.3))

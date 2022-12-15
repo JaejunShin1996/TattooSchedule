@@ -83,10 +83,10 @@ struct ScheduleListView: View {
                             Text(schedule.scheduleName)
                                 .font(.title)
                                 .bold()
+                                .foregroundColor(Color.blue)
 
                             HStack {
                                 Text(schedule.scheduleDate.formatted(date: .omitted, time: .shortened))
-                                    .font(.title)
                                 Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .omitted))
                             }
                         }
@@ -120,10 +120,10 @@ struct ScheduleListView: View {
                                     Text(schedule.scheduleName)
                                         .font(.title)
                                         .bold()
+                                        .foregroundColor(Color.blue)
 
                                     HStack {
                                         Text(schedule.scheduleDate.formatted(date: .omitted, time: .shortened))
-                                            .font(.title)
                                         Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .omitted))
                                     }
                                 }

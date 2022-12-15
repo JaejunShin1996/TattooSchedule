@@ -20,7 +20,7 @@ struct PreviewableGridImageView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: (UIScreen.main.bounds.width) * 0.33 - 15, height: 150)
-                    .cornerRadius(15.0)
+                    .cornerRadius(10.0)
                     .allowsHitTesting(false)
             }
     }

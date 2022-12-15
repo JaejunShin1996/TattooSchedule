@@ -15,7 +15,7 @@ struct EmptyImageViewModifier: ViewModifier {
             .frame(maxWidth: .infinity)
             .frame(height: 50)
             .background(.gray.opacity(0.3))
-            .cornerRadius(20)
+            .cornerRadius(10)
             .shadow(radius: 20)
     }
 }

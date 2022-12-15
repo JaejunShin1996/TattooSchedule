@@ -29,7 +29,7 @@ struct ScheduleSearchView: View {
                     VStack {
                         Spacer()
 
-                        Text("Search for a client's name.")
+                        Text("Search for a name")
 
                         Spacer()
                         Spacer()

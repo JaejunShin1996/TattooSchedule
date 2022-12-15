@@ -5,6 +5,7 @@
 //  Created by Jaejun Shin on 26/9/2022.
 //
 
+import ClockKit
 import Foundation
 
 extension Schedule {
