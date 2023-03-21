@@ -17,31 +17,29 @@ struct ScheduleListView: View {
     @ObservedObject var viewModel: ViewModel
     @ObservedObject var dataController: DataController
 
-    var schedulesForEachView: [Schedule] {
-        if navigationTitle == "Today" {
-            return viewModel.todaySchedules()
-        } else if navigationTitle == "Upcoming" {
-            return viewModel.upcomingSchedules()
-        } else {
-            return viewModel.pastSchedules()
-        }
-    }
-
     @State private var showingAddSchedule = false
     @State private var showingSearchView = false
 
     var body: some View {
         NavigationView {
             Group {
-                if schedulesForEachView.isEmpty {
-                    Text("No schedules.")
-                } else {
-                    if navigationTitle == "Today" {
+                if navigationTitle == "Today" {
+                    if !viewModel.todaySchedules().isEmpty {
                         todayList
-                    } else if navigationTitle == "Upcoming" {
+                    } else {
+                        Text("No clients found.")
+                    }
+                } else if navigationTitle == "Upcoming" {
+                    if !viewModel.upcomingSchedules().isEmpty {
                         upcomingList
                     } else {
+                        Text("No clients found.")
+                    }
+                } else {
+                    if !viewModel.pastSchedules().isEmpty {
                         pastList
+                    } else {
+                        Text("No clients found.")
                     }
                 }
             }
@@ -69,12 +67,16 @@ struct ScheduleListView: View {
             .sheet(isPresented: $showingSearchView) {
                 ScheduleSearchView(viewModel: viewModel)
             }
+            
+            SelectSomethingView()
         }
     }
+}
 
+extension ScheduleListView {
     var todayList: some View {
         List {
-            ForEach(schedulesForEachView) { schedule in
+            ForEach(viewModel.todaySchedules()) { schedule in
                 NavigationLink {
                     DetailView(viewModel: viewModel, schedule: schedule)
                 } label: {
@@ -83,12 +85,8 @@ struct ScheduleListView: View {
                             Text(schedule.scheduleName)
                                 .font(.title)
                                 .bold()
-                                .foregroundColor(Color.blue)
 
-                            HStack {
-                                Text(schedule.scheduleDate.formatted(date: .omitted, time: .shortened))
-                                Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .omitted))
-                            }
+                            Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .shortened))
                         }
 
                         Spacer()
@@ -105,11 +103,12 @@ struct ScheduleListView: View {
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
     }
-
+    
     var upcomingList: some View {
         List {
-            ForEach(Array(viewModel.groupUpcomingSchedulesByWeeks()), id: \.key) { week, schedules in
+            ForEach(Array(viewModel.upcomingSchedules()), id: \.key) { week, schedules in
                 Section {
                     ForEach(schedules) { schedule in
                         NavigationLink {
@@ -118,20 +117,17 @@ struct ScheduleListView: View {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(schedule.scheduleName)
-                                        .font(.title)
+                                        .font(week == "This week" ? .title : .title2)
                                         .bold()
-                                        .foregroundColor(Color.blue)
 
-                                    HStack {
-                                        Text(schedule.scheduleDate.formatted(date: .omitted, time: .shortened))
-                                        Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .omitted))
-                                    }
+                                    Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .shortened))
                                 }
 
                                 Spacer()
 
                                 Text("A$ \(schedule.schedulePrice)")
                             }
+                            .font(.headline)
                         }
                         .contextMenu {
                             Button(role: .destructive) {
@@ -147,11 +143,12 @@ struct ScheduleListView: View {
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
     }
-
+    
     var pastList: some View {
         List {
-            ForEach(Array(viewModel.groupPastSchedulesByMonth()), id: \.key) { month, schedules in
+            ForEach(Array(viewModel.pastSchedules()), id: \.key) { month, schedules in
                 Section {
                     ForEach(schedules) { schedule in
                         NavigationLink {
@@ -180,17 +177,18 @@ struct ScheduleListView: View {
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
     }
 }
 
 struct ScheduleListView_Previews: PreviewProvider {
-    static let viewModel = ViewModel(dataController: DataController.preview)
+    static let viewModel = ViewModel(dataController: DataController())
 
     static var previews: some View {
         ScheduleListView(
             navigationTitle: "Example",
             viewModel: viewModel,
-            dataController: DataController.preview
+            dataController: DataController()
         )
     }
 }

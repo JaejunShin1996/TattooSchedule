@@ -19,7 +19,7 @@ struct DetailView: View {
 
     @State private var name: String
     @State private var date: Date
-    @State private var design: String
+    @State private var comment: String
     @State private var price: String
     @State private var photos: [Photo]
 
@@ -29,7 +29,7 @@ struct DetailView: View {
 
         _name = State(wrappedValue: schedule.scheduleName)
         _date = State(wrappedValue: schedule.scheduleDate)
-        _design = State(wrappedValue: schedule.scheduleDesign)
+        _comment = State(wrappedValue: schedule.scheduleComment)
         _price = State(wrappedValue: schedule.schedulePrice)
         _photos = State(wrappedValue: viewModel.sortedImages(schedule))
     }
@@ -46,7 +46,7 @@ struct DetailView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center) {
-                NameAndDetailView(name: $name, detail: $design, price: $price)
+                NameAndDetailView(name: $name, price: $price, comment: $comment)
                     .allowsHitTesting(editting)
 
                 GridPhotoView(
@@ -63,7 +63,7 @@ struct DetailView: View {
 
                 SlideToUnlockView(isLocked: $detailmode)
 
-                Spacer(minLength: 40)
+                Spacer()
             }
             .padding(.horizontal)
         }
@@ -109,7 +109,7 @@ struct DetailView: View {
     func saveEditedSchedule(_ editedSchedule: Schedule) {
         editedSchedule.name = name
         editedSchedule.date = date
-        editedSchedule.design = design
+        editedSchedule.comment = comment
         editedSchedule.price = price
 
         if !(imagePicker.images.isEmpty) {

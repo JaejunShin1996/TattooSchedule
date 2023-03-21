@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DateAndTimeView: View {
-    var isEditing = false
+    var isEditing = true
     var colorScheme: ColorScheme
     @Binding var date: Date
 
@@ -37,5 +37,11 @@ struct DateAndTimeView: View {
             .shadow(radius: 20)
         }
         .padding(.top)
+    }
+}
+
+struct DateAndTimeView_Previews: PreviewProvider {
+    static var previews: some View {
+        DateAndTimeView(colorScheme: .dark, date: .constant(.now))
     }
 }

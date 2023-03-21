@@ -21,8 +21,8 @@ extension Schedule {
         date ?? Date.now
     }
 
-    var scheduleDesign: String {
-        design ?? "Nothing"
+    var scheduleComment: String {
+        comment ?? "Nothing"
     }
 
     var schedulePrice: String {
@@ -46,13 +46,13 @@ extension Schedule {
     }
 
     static var example: Schedule {
-        let controller = DataController.preview
+        let controller = DataController()
         let viewContext = controller.container.viewContext
 
         let schedule = Schedule(context: viewContext)
         schedule.name = "Jaejun Shin"
         schedule.date = Date()
-        schedule.design = "Neo traditional"
+        schedule.comment = "Neo traditional"
         schedule.price = "100"
 
         return schedule

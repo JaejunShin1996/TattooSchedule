@@ -53,9 +53,7 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         var todaySchedules = [Schedule]()
 
         for schedule in schedules {
-            let scheduleDate = schedule.scheduleDate
-
-            if Calendar.current.isDateInToday(scheduleDate) {
+            if Calendar.current.isDateInToday(schedule.scheduleDate) {
                 todaySchedules.append(schedule)
             }
         }
@@ -63,38 +61,32 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         return todaySchedules
     }
 
-    func upcomingSchedules() -> [Schedule] {
+    func upcomingSchedules() -> ScheduleGroup {
         var upcomingSchedules = [Schedule]()
 
-        let tomorrow = Calendar.current.date(byAdding: DateComponents(day: 1), to: Date())!
-
         for schedule in schedules {
-            let scheduleDate = schedule.scheduleDate
-
-            if scheduleDate >= tomorrow || Calendar.current.isDateInTomorrow(scheduleDate) {
+            if !schedule.scheduleDate.isInToday && schedule.scheduleDate.isInTheFuture {
                 upcomingSchedules.append(schedule)
             }
         }
-
-        return upcomingSchedules
+        guard !upcomingSchedules.isEmpty else { return [:] }
+        
+        return ScheduleGroup(grouping: upcomingSchedules.sorted { $0.scheduleDate < $1.scheduleDate }) { $0.week }
     }
 
-    func pastSchedules() -> [Schedule] {
+    func pastSchedules() -> ScheduleGroup {
         var pastSchedules = [Schedule]()
 
-        let yesterday = Calendar.current.date(byAdding: DateComponents(day: -1), to: Date())!
-
         for schedule in schedules {
-            let scheduleDate = schedule.scheduleDate
-
-            if (scheduleDate <= yesterday) || Calendar.current.isDateInYesterday(scheduleDate) {
+            if !schedule.scheduleDate.isInToday && schedule.scheduleDate.isInThePast {
                 pastSchedules.append(schedule)
 
                 NotificationManager.instance.cancelNotification(notificationId: schedule.scheduleStringID)
             }
         }
-
-        return pastSchedules.sorted { $0.scheduleDate > $1.scheduleDate }
+        guard !pastSchedules.isEmpty else { return [:] }
+        
+        return ScheduleGroup(grouping: pastSchedules.sorted { $0.scheduleDate > $1.scheduleDate }) { $0.month }
     }
 
     // Sorts images in the nssset of coredata
@@ -113,25 +105,8 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
         return filtered
     }
 
-    // Groups schedules by month.
-    func groupPastSchedulesByMonth() -> ScheduleGroup {
-        guard !schedules.isEmpty else { return [:] }
-
-        let groupedSchedules = ScheduleGroup(grouping: pastSchedules()) { $0.month }
-
-        return groupedSchedules
-    }
-
-    func groupUpcomingSchedulesByWeeks() -> ScheduleGroup {
-        guard !schedules.isEmpty else { return [:] }
-
-        let groupedSchedules = ScheduleGroup(grouping: upcomingSchedules()) { $0.week }
-
-        return groupedSchedules
-    }
-
     func reload() {
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.main.async {
             do {
                 try self.schedulesController.performFetch()
 
@@ -147,7 +122,7 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
     func checkForReload() {
         let lastChecked = Date(timeIntervalSinceReferenceDate: lastChecked)
 
-        if Calendar.current.isDateInToday(lastChecked) == false {
+        if !lastChecked.isInToday {
             reload()
         }
     }

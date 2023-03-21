@@ -29,7 +29,9 @@ struct ScheduleSearchView: View {
                     VStack {
                         Spacer()
 
-                        Text("Search for a name")
+                        Text("Search a client's name")
+                            .font(.headline)
+                            .italic()
 
                         Spacer()
                         Spacer()
@@ -57,6 +59,6 @@ struct ScheduleSearchView: View {
 
 struct ScheduleSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleSearchView(viewModel: ViewModel(dataController: DataController.preview))
+        ScheduleSearchView(viewModel: ViewModel(dataController: DataController()))
     }
 }

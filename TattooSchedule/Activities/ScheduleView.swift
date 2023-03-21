@@ -24,56 +24,53 @@ struct ScheduleView: View {
 
     var body: some View {
         TabView(selection: $selectedView) {
-            ScheduleListView(
-                navigationTitle: "Today",
-                viewModel: viewModel,
-                dataController: dataController
-            )
-            .tag(ScheduleListView.todayTag)
-            .tabItem {
-                Image(systemName: "clock")
-                Text("Today")
-            }
+            Group {
+                ScheduleListView(
+                    navigationTitle: "Today",
+                    viewModel: viewModel,
+                    dataController: dataController
+                )
+                .tag(ScheduleListView.todayTag)
+                .tabItem {
+                    Image(systemName: "clock")
+                    Text("Today")
+                }
 
-            ScheduleListView(
-                navigationTitle: "Upcoming",
-                viewModel: viewModel,
-                dataController: dataController
-            )
-            .tag(ScheduleListView.UpcomingTag)
-            .tabItem {
-                Image(systemName: "hourglass")
-                Text("Upcoming")
-            }
+                ScheduleListView(
+                    navigationTitle: "Upcoming",
+                    viewModel: viewModel,
+                    dataController: dataController
+                )
+                .tag(ScheduleListView.UpcomingTag)
+                .tabItem {
+                    Image(systemName: "hourglass")
+                    Text("Upcoming")
+                }
 
-            ScheduleListView(
-                navigationTitle: "Past",
-                viewModel: viewModel,
-                dataController: dataController
-            )
-            .tag(ScheduleListView.pastTag)
-            .tabItem {
-                Image(systemName: "clock.arrow.circlepath")
-                Text("Past")
+                ScheduleListView(
+                    navigationTitle: "Past",
+                    viewModel: viewModel,
+                    dataController: dataController
+                )
+                .tag(ScheduleListView.pastTag)
+                .tabItem {
+                    Image(systemName: "clock.arrow.circlepath")
+                    Text("Past")
+                }
             }
         }
+        .tint(.blue)
         .onChange(of: scenePhase) { newPhase in
-            if newPhase == .inactive {
+            switch newPhase {
+            case .inactive:
                 print("Inactive")
+            case .active:
                 viewModel.reload()
-            } else if newPhase == .active {
-                print("Active")
-                viewModel.reload()
-            } else if newPhase == .background {
+            case .background:
                 print("Background")
-                viewModel.reload()
+            @unknown default:
+                fatalError("scenePhase error")
             }
         }
-    }
-}
-
-struct ScheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScheduleView(dataController: DataController.preview)
     }
 }

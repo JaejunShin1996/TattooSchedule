@@ -11,6 +11,10 @@ import SwiftUI
 @main
 struct TattooScheduleApp: App {
     @StateObject private var dataController = DataController()
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.secondarySystemBackground
+    }
 
     var body: some Scene {
         WindowGroup {

@@ -23,9 +23,9 @@ struct SlideToUnlockView: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
 
-                DraggingComponent(isLocked: $isLocked, maxWidth: geometry.size.width * 0.666)
+                DraggingComponent(isLocked: $isLocked, maxWidth: geometry.size.width * 0.555)
             }
-            .frame(width: geometry.size.width * 0.666)
+            .frame(width: geometry.size.width * 0.555)
             .frame(maxWidth: .infinity)
         }
         .frame(height: 50)
@@ -66,22 +66,24 @@ struct DraggingComponent: View {
                     }
                     .onEnded {_ in
                         if isLocked {
-                            if width < maxWidth {
+                            if width < maxWidth * 0.777 {
                                 width = minWidth
                                 UINotificationFeedbackGenerator().notificationOccurred(.warning)
                             } else {
                                 UINotificationFeedbackGenerator().notificationOccurred(.success)
                                 withAnimation(.spring()) {
+                                    width = maxWidth
                                     isLocked.toggle()
                                 }
                             }
                         } else {
-                            if width > minWidth {
+                            if width > minWidth * 2 {
                                 width = maxWidth
                                 UINotificationFeedbackGenerator().notificationOccurred(.warning)
                             } else {
                                 UINotificationFeedbackGenerator().notificationOccurred(.success)
                                 withAnimation(.spring()) {
+                                    width = minWidth
                                     isLocked.toggle()
                                 }
                             }
@@ -94,7 +96,7 @@ struct DraggingComponent: View {
     private func image(name: String, isShown: Bool) -> some View {
         Image(systemName: name)
           .font(.title)
-          .foregroundColor(isLocked ? Color.blue : Color.green)
+          .foregroundColor(isLocked ? Color.green : Color.blue)
           .frame(width: 42, height: 42)
           .background(RoundedRectangle(cornerRadius: 14).fill(.white))
           .padding(4)
@@ -108,6 +110,6 @@ struct SlideToUnlockView_Previews: PreviewProvider {
     static let exampleAction = {}
 
     static var previews: some View {
-        SlideToUnlockView(isLocked: .constant(true))
+        SlideToUnlockView(isLocked: .constant(false))
     }
 }

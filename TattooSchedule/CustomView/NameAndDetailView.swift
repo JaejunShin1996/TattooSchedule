@@ -10,8 +10,8 @@ import SwiftUI
 struct NameAndDetailView: View {
     @FocusState private var focusedField: Field?
     @Binding var name: String
-    @Binding var detail: String
     @Binding var price: String
+    @Binding var comment: String
 
     var body: some View {
         VStack {
@@ -41,7 +41,7 @@ struct NameAndDetailView: View {
 
                 Divider()
 
-                TextField("Any comment", text: $detail, axis: .vertical)
+                TextField("Any comments", text: $comment, axis: .vertical)
                     .lineLimit(3, reservesSpace: true)
                     .focused($focusedField, equals: .design)
                     .submitLabel(.next)
@@ -58,7 +58,7 @@ struct NameAndDetailView: View {
             }
             .padding()
             .background(.gray.opacity(0.3))
-            .cornerRadius(20)
+            .cornerRadius(10)
             .shadow(radius: 20)
         }
         .onSubmit {
@@ -72,5 +72,11 @@ struct NameAndDetailView: View {
             }
         }
         .scrollDismissesKeyboard(.interactively)
+    }
+}
+
+struct NameAndDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        NameAndDetailView(name: .constant("John Doe"), price: .constant("999"), comment: .constant("No comment"))
     }
 }
