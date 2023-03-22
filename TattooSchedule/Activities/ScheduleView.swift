@@ -27,8 +27,7 @@ struct ScheduleView: View {
             Group {
                 ScheduleListView(
                     navigationTitle: "Today",
-                    viewModel: viewModel,
-                    dataController: dataController
+                    viewModel: viewModel
                 )
                 .tag(ScheduleListView.todayTag)
                 .tabItem {
@@ -38,8 +37,7 @@ struct ScheduleView: View {
 
                 ScheduleListView(
                     navigationTitle: "Upcoming",
-                    viewModel: viewModel,
-                    dataController: dataController
+                    viewModel: viewModel
                 )
                 .tag(ScheduleListView.UpcomingTag)
                 .tabItem {
@@ -49,8 +47,7 @@ struct ScheduleView: View {
 
                 ScheduleListView(
                     navigationTitle: "Past",
-                    viewModel: viewModel,
-                    dataController: dataController
+                    viewModel: viewModel
                 )
                 .tag(ScheduleListView.pastTag)
                 .tabItem {
@@ -59,7 +56,6 @@ struct ScheduleView: View {
                 }
             }
         }
-        .tint(.blue)
         .onChange(of: scenePhase) { newPhase in
             switch newPhase {
             case .inactive:

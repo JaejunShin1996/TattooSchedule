@@ -57,9 +57,9 @@ struct NameAndDetailView: View {
                     }
             }
             .padding()
-            .background(.gray.opacity(0.3))
+            .background(.thinMaterial)
             .cornerRadius(10)
-            .shadow(radius: 20)
+            .shadow(radius: 10)
         }
         .onSubmit {
             switch focusedField {

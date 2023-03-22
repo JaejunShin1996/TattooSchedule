@@ -29,5 +29,6 @@ struct PreviewableGridImageView: View {
                     .cornerRadius(10.0)
                     .allowsHitTesting(false)
             }
+            .shadow(radius: 10)
     }
 }

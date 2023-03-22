@@ -98,7 +98,7 @@ class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
     func filteredSchedules(searchString: String) -> [Schedule] {
         var filtered = [Schedule]()
 
-        for schedule in schedules where schedule.scheduleName.contains(searchString) {
+        for schedule in schedules where schedule.scheduleName.localizedCaseInsensitiveContains (searchString) {
             filtered.append(schedule)
         }
 

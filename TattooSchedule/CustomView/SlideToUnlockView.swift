@@ -14,13 +14,13 @@ struct SlideToUnlockView: View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.gray.opacity(0.3))
+                    .fill(.thinMaterial)
+                    .shadow(radius: 10)
 
                 Text(
                     isLocked ? "Slide to edit" : "Slide to save")
-                    .font(.subheadline)
+                    .font(.headline)
                     .bold()
-                    .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
 
                 DraggingComponent(isLocked: $isLocked, maxWidth: geometry.size.width * 0.555)

@@ -37,7 +37,7 @@ struct AddScheduleView: View {
 
                     DateAndTimeView(colorScheme: colorScheme, date: $date)
                 }
-                .padding(.horizontal)
+                .padding([.horizontal, .vertical])
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -45,7 +45,6 @@ struct AddScheduleView: View {
                         dismiss()
                     } label: {
                         Text("Back")
-                            .tint(.gray)
                     }
                 }
                 

@@ -53,6 +53,16 @@ struct ScheduleSearchView: View {
             }
             .searchable(text: $searchText)
             .navigationTitle("Search")
+            .toolbar {
+                ToolbarItem(placement:.navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Back")
+                    }
+
+                }
+            }
         }
     }
 }

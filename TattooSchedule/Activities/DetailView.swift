@@ -65,7 +65,7 @@ struct DetailView: View {
 
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding([.horizontal, .vertical])
         }
         .navigationTitle(name)
         .toolbar {

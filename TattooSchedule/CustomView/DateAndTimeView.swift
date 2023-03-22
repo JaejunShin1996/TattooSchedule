@@ -22,19 +22,19 @@ struct DateAndTimeView: View {
             VStack {
                 DatePicker("Date", selection: $date)
                     .datePickerStyle(.graphical)
-                    .padding(.horizontal)
                     .onAppear {
                         UIDatePicker.appearance().minuteInterval = 30
                     }
+                    .padding([.horizontal, .vertical])
             }
             .tint(
                 colorScheme == .light ?
                   isEditing ? .blue : .primary
                 : isEditing ? .blue : .secondary
             )
-            .background(.gray.opacity(0.3))
+            .background(.thinMaterial)
             .cornerRadius(20)
-            .shadow(radius: 20)
+            .shadow(radius: 10)
         }
         .padding(.top)
     }

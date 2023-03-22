@@ -15,7 +15,7 @@ struct ScheduleListView: View {
     var navigationTitle: String
 
     @ObservedObject var viewModel: ViewModel
-    @ObservedObject var dataController: DataController
+    @EnvironmentObject var dataController: DataController
 
     @State private var showingAddSchedule = false
     @State private var showingSearchView = false
@@ -86,13 +86,16 @@ extension ScheduleListView {
                                 .font(.title)
                                 .bold()
 
-                            Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .shortened))
+                            Text(schedule.scheduleDate.formatted(
+                                date: .abbreviated, time: .shortened))
                         }
 
                         Spacer()
 
                         Text("A$ \(schedule.schedulePrice)")
+                            .bold()
                     }
+                    .font(.headline)
                 }
                 .contextMenu {
                     Button(role: .destructive) {
@@ -103,7 +106,7 @@ extension ScheduleListView {
                 }
             }
         }
-        .listStyle(InsetGroupedListStyle())
+        .listStyle(.insetGrouped)
     }
     
     var upcomingList: some View {
@@ -117,15 +120,17 @@ extension ScheduleListView {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(schedule.scheduleName)
-                                        .font(week == "This week" ? .title : .title2)
+                                        .font(.title2)
                                         .bold()
 
-                                    Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .shortened))
+                                    Text(schedule.scheduleDate.formatted(
+                                        date: .abbreviated, time: .shortened))
                                 }
 
                                 Spacer()
 
                                 Text("A$ \(schedule.schedulePrice)")
+                                    .bold()
                             }
                             .font(.headline)
                         }
@@ -143,7 +148,7 @@ extension ScheduleListView {
                 }
             }
         }
-        .listStyle(InsetGroupedListStyle())
+        .listStyle(.insetGrouped)
     }
     
     var pastList: some View {
@@ -177,7 +182,7 @@ extension ScheduleListView {
                 }
             }
         }
-        .listStyle(InsetGroupedListStyle())
+        .listStyle(.insetGrouped)
     }
 }
 
@@ -187,8 +192,8 @@ struct ScheduleListView_Previews: PreviewProvider {
     static var previews: some View {
         ScheduleListView(
             navigationTitle: "Example",
-            viewModel: viewModel,
-            dataController: DataController()
+            viewModel: viewModel
         )
+        .environmentObject(DataController())
     }
 }
