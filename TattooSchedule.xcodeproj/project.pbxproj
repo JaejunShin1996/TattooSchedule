@@ -35,6 +35,7 @@
 		52FE5C17291CDE24009B791A /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 52FE5C16291CDE24009B791A /* ImageViewer */; };
 		D39110B429C832220046014E /* SelectSomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39110B329C832220046014E /* SelectSomethingView.swift */; };
 		D39110B629C835DD0046014E /* PlatformAdjustment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39110B529C835DD0046014E /* PlatformAdjustment.swift */; };
+		D3E1EDA529CAEBB20045CC08 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E1EDA429CAEBB20045CC08 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		52E9C4832858518D00E88AEE /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
 		D39110B329C832220046014E /* SelectSomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSomethingView.swift; sourceTree = "<group>"; };
 		D39110B529C835DD0046014E /* PlatformAdjustment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAdjustment.swift; sourceTree = "<group>"; };
+		D3E1EDA429CAEBB20045CC08 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				52E3C705291E59C600A0EE95 /* NotificationManager.swift */,
 				52970977292F5C0200491952 /* EmptyImageTextViewModifier.swift */,
 				D39110B529C835DD0046014E /* PlatformAdjustment.swift */,
+				D3E1EDA429CAEBB20045CC08 /* ColorExtension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				D39110B429C832220046014E /* SelectSomethingView.swift in Sources */,
 				5204353C292493280037F53A /* DateExtension.swift in Sources */,
 				52CBFE5828F5292A0001E7D9 /* ScheduleSearchView.swift in Sources */,
+				D3E1EDA529CAEBB20045CC08 /* ColorExtension.swift in Sources */,
 				5204353A29239EA50037F53A /* DateAndTimeView.swift in Sources */,
 				52E9C48228584F7600E88AEE /* DataController.swift in Sources */,
 				5201901B28E5765C00F79E43 /* ImagePicker.swift in Sources */,

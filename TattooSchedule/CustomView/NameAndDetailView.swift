@@ -34,7 +34,7 @@ struct NameAndDetailView: View {
 
                     TextField("Price", text: $price)
                         .focused($focusedField, equals: .price)
-                        .keyboardType(.numberPad)
+                        .keyboardType(.numbersAndPunctuation)
                         .submitLabel(.done)
                         .font(.headline)
                 }

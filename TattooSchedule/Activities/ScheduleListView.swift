@@ -70,6 +70,7 @@ struct ScheduleListView: View {
             
             SelectSomethingView()
         }
+        .scrollIndicators(.hidden)
     }
 }
 
@@ -81,22 +82,37 @@ extension ScheduleListView {
                     DetailView(viewModel: viewModel, schedule: schedule)
                 } label: {
                     HStack {
+                        if schedule.schedulePhotos.isEmpty {
+                            Image(systemName: "photo.on.rectangle")
+                                .font(.largeTitle)
+                                .frame(width: 60, height: 60)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(CustomColor.borderColor, lineWidth: 1)
+                                )
+                        } else {
+                            Image(uiImage: UIImage(data: schedule.schedulePhotos.last!.schedulePhoto)!)
+                                .resizable()
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .frame(width: 60, height: 60)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(CustomColor.borderColor, lineWidth: 1)
+                                )
+                        }
+                        
                         VStack(alignment: .leading) {
                             Text(schedule.scheduleName)
-                                .font(.title)
+                                .font(.title2)
                                 .bold()
 
                             Text(schedule.scheduleDate.formatted(
-                                date: .abbreviated, time: .shortened))
+                                date: .numeric, time: .shortened))
                         }
-
-                        Spacer()
-
-                        Text("A$ \(schedule.schedulePrice)")
-                            .bold()
                     }
                     .font(.headline)
                 }
+                .listRowBackground(CustomColor.listBackgroundColor)
                 .contextMenu {
                     Button(role: .destructive) {
                         dataController.delete(schedule)
@@ -106,7 +122,7 @@ extension ScheduleListView {
                 }
             }
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.plain)
     }
     
     var upcomingList: some View {
@@ -118,22 +134,39 @@ extension ScheduleListView {
                             DetailView(viewModel: viewModel, schedule: schedule)
                         } label: {
                             HStack {
+                                if schedule.schedulePhotos.isEmpty {
+                                    Image(systemName: "photo.on.rectangle")
+                                        .font(.largeTitle)
+                                        .frame(width: 60, height: 60)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(CustomColor.borderColor, lineWidth: 1)
+                                        )
+                                } else {
+                                    Image(uiImage: UIImage(data: schedule.schedulePhotos.last!.schedulePhoto)!)
+                                        .resizable()
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .frame(width: 60, height: 60)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(CustomColor.borderColor, lineWidth: 1)
+                                        )
+                                }
+                                
                                 VStack(alignment: .leading) {
                                     Text(schedule.scheduleName)
                                         .font(.title2)
                                         .bold()
 
                                     Text(schedule.scheduleDate.formatted(
-                                        date: .abbreviated, time: .shortened))
+                                        date: .numeric, time: .shortened))
                                 }
 
                                 Spacer()
-
-                                Text("A$ \(schedule.schedulePrice)")
-                                    .bold()
                             }
                             .font(.headline)
                         }
+                        .listRowBackground(CustomColor.listBackgroundColor)
                         .contextMenu {
                             Button(role: .destructive) {
                                 dataController.delete(schedule)
@@ -148,7 +181,7 @@ extension ScheduleListView {
                 }
             }
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.inset)
     }
     
     var pastList: some View {
@@ -163,11 +196,12 @@ extension ScheduleListView {
                                 Text(schedule.scheduleName)
                                     .bold()
 
-                                Text(schedule.scheduleDate.formatted(date: .abbreviated, time: .shortened))
+                                Text(schedule.scheduleDate.formatted(date: .numeric, time: .shortened))
                             }
                             .font(.headline)
                             .foregroundColor(.secondary)
                         }
+                        .listRowBackground(CustomColor.listBackgroundColor)
                         .contextMenu {
                             Button(role: .destructive) {
                                 dataController.delete(schedule)
@@ -182,7 +216,7 @@ extension ScheduleListView {
                 }
             }
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.inset)
     }
 }
 
